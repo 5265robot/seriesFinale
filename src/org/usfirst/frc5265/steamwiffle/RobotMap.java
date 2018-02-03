@@ -43,16 +43,11 @@ public class RobotMap {
     public static SpeedController chassisSpeedController1; // Front Right
     public static SpeedController chassisSpeedController2; // Rear Right
     public static SpeedController chassisSpeedController3; // Rear Left
-    public static SpeedController shooterMotor;
-    
-    public static AnalogPotentiometer pot;
+    public static SpeedController shooterMotor; 
+    public static AnalogPotentiometer analPot;
     public static PowerDistributionPanel chassisPowerDistributionPanel1;
-    
-    
     public static SpeedController brushless;
-   
     public static DigitalInput fuelLimitSwitch1;
-    
     public static Servo servme;
     public static DoubleSolenoid airDoubleSolenoid1 = new DoubleSolenoid(0,1);
     	
@@ -78,36 +73,17 @@ public class RobotMap {
         LiveWindow.addActuator("chassis", "Speed Controller 3", (Victor) chassisSpeedController3);
        
         
-        pot = new AnalogPotentiometer(3);
-        LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) pot);
+        analPot = new AnalogPotentiometer(3);
+        LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
         
         servme = new Servo(9);
         LiveWindow.addActuator("Servo", 9, (Servo) servme);
-        
-       /*
-        chassisAnalogGyro1 = new AnalogGyro(0);
-        LiveWindow.addSensor("chassis", "AnalogGyro 1", chassisAnalogGyro1);
-        chassisAnalogGyro1.setSensitivity(0.007);
-        chassisPowerDistributionPanel1 = new PowerDistributionPanel(0);
-        LiveWindow.addSensor("chassis", "PowerDistributionPanel 1", chassisPowerDistributionPanel1);
-        
-        chassisAnalogAccelerometer1 = new AnalogAccelerometer(1);
-        LiveWindow.addSensor("chassis", "AnalogAccelerometer 1", chassisAnalogAccelerometer1);
-        chassisAnalogAccelerometer1.setSensitivity(0.0);
-        chassisAnalogAccelerometer1.setZero(2.5);
-        */
-        
-        
-        
         
       
         brushless = new Victor (4);
         LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
         
-        
-       
-        
-        
+         
         airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         
 

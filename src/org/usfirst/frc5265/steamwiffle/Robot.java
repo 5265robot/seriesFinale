@@ -59,10 +59,8 @@ public class Robot extends IterativeRobot {
     // each subsystem must be declared
     public static OI oi;
     public static chassis chassis;
-
     public static stagValues stagValues;
-    
-    public static brushPot brushPot;
+  
     
     /**
      * This function is run when the robot is first started up and should be
@@ -70,7 +68,7 @@ public class Robot extends IterativeRobot {
      */
     
     public Robot() {
-    	Raspberry = NetworkTable.getTable("Raspberry");
+    //	Raspberry = NetworkTable.getTable("Raspberry");
     	
     }
  
@@ -80,7 +78,7 @@ public class Robot extends IterativeRobot {
     	RobotMap.init();
         // start each subsystem
     	chassis = new chassis();
-        stagValues = new stagValues();
+    stagValues = new stagValues();
         
         
         
@@ -169,7 +167,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        double degrees = RobotMap.pot.get();
+        //double degrees = RobotMap.pot.get();
         
         //double distance = ultra.getValue();
         //SmartDashboard.putNumber("Distance", distance)
