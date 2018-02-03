@@ -15,8 +15,8 @@ public class CenterAlliance extends CommandGroup {
     	requires(Robot.stagValues);
     	
     	double caa1dx = stagValues.caa01dx, caa1dy = stagValues.caa01dy, caa1dt = stagValues.caa01dt, caa1dtime = stagValues.caa01dtime;
-    	double caa2dx = stagValues.caa02dx, caa2dy = stagValues.caa02dy, caa2dt = stagValues.caa02dt, caa2dtime = stagValues.caa02dtime;
-    	double caa3dx = stagValues.caa03dx, caa3dy = stagValues.caa03dy, caa3dt = stagValues.caa03dt, caa3dtime = stagValues.caa03dtime;
+    //	double caa2dx = stagValues.caa02dx, caa2dy = stagValues.caa02dy, caa2dt = stagValues.caa02dt, caa2dtime = stagValues.caa02dtime;
+    //	double caa3dx = stagValues.caa03dx, caa3dy = stagValues.caa03dy, caa3dt = stagValues.caa03dt, caa3dtime = stagValues.caa03dtime;
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

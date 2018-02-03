@@ -12,6 +12,7 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc5265.steamwiffle.Robot;
+import org.usfirst.frc5265.steamwiffle.subsystems.chassis;
 
 /**
  *
@@ -19,7 +20,7 @@ import org.usfirst.frc5265.steamwiffle.Robot;
 public class AutonomousCommand extends Command {
 	private double x_speed = 0;
 	private double y_speed = 0;
-	private double twist = 0;
+	//private double twist = 0;
 	private double time = 3;
 
    
@@ -35,7 +36,7 @@ public class AutonomousCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 
-    	Robot.chassis.driveChassisSteering(x_speed, y_speed);
+    	chassis.driveChassisSteering(x_speed, y_speed);
 
     }
 
@@ -52,7 +53,7 @@ public class AutonomousCommand extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	// stop motion
-    	Robot.chassis.driveChassisSteering(0, 0);
+    	chassis.driveChassisSteering(0, 0);
         
     }
 

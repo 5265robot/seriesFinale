@@ -12,7 +12,7 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc5265.steamwiffle.subsystems.*;
+//import org.usfirst.frc5265.steamwiffle.subsystems.*;
 
 /**
  *

@@ -2,11 +2,11 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.subsystems.*;
-
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.DriverStation;
+//import edu.wpi.first.wpilibj.Timer;
+
 
 
 /**
@@ -29,8 +29,8 @@ public class driveCommandSteer extends Command {
     protected void execute() {
 
     	
-    	double f = 1.0;
-    	double voltage = DriverStation.getInstance().getBatteryVoltage();
+   // 	double f = 1.0;
+   // 	double voltage = DriverStation.getInstance().getBatteryVoltage();
     	// variables for the raw data from the joystick
     	double x, y, t, throttle, minMotion;
     	
@@ -49,7 +49,7 @@ public class driveCommandSteer extends Command {
     	
     	// if we want to modify these variables, wgge modify them here
     	
-    	//the tester
+    /*	//the tester
     	if(voltage < 7.5){
     		f = .75;
     		SmartDashboard.putNumber("f", f);
@@ -57,9 +57,9 @@ public class driveCommandSteer extends Command {
     	else{
     		f = 1.0;
     	}
+    	*/
     	// Incorporating throttle 
     	throttle = ((-throttle + 1)/2);
-    	throttle = (throttle * f);
     	SmartDashboard.putNumber("throttle", throttle);
         	// x modification
     	if (Math.abs(x) <= minMotion) { // x can be both positive and negative
@@ -101,7 +101,7 @@ public class driveCommandSteer extends Command {
     	
     	    	
     	// steer using those variables
-    	Robot.chassis.driveChassisSteering(x, y);
+    	chassis.driveChassisSteering(x, y);
     	
     }
 

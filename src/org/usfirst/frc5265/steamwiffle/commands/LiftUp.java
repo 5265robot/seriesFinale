@@ -18,7 +18,11 @@ public class LiftUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.brushless.set(.5);
+    		if(RobotMap.analPot.get()<.8) {
+    			RobotMap.brushless.set(.5);
+    		}else {
+    			RobotMap.brushless.set(0);
+    		}
     }
 
     // Called repeatedly when this Command is scheduled to run

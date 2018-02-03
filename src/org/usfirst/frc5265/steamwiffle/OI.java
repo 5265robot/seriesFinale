@@ -13,12 +13,12 @@ package org.usfirst.frc5265.steamwiffle;
 
 //import org.opencv.*;
 import org.usfirst.frc5265.steamwiffle.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc5265.steamwiffle.subsystems.*;
-import edu.wpi.first.wpilibj.interfaces.*;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.GenericHID.Hand;
+//import org.usfirst.frc5265.steamwiffle.subsystems.*;
+//import edu.wpi.first.wpilibj.interfaces.*;
 
 
 /**

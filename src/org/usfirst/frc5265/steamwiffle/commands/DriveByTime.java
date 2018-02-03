@@ -1,6 +1,7 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
+import org.usfirst.frc5265.steamwiffle.subsystems.chassis;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,7 +25,7 @@ public class DriveByTime extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.chassis.driveChassisSteering(xx, yy);
+    	chassis.driveChassisSteering(xx, yy);
     	Timer.delay(.1);
     }
 
@@ -40,7 +41,7 @@ public class DriveByTime extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.chassis.driveChassisSteering(0, 0);
+    	chassis.driveChassisSteering(0, 0);
     }
 
     // Called when another command which requires one or more of the same

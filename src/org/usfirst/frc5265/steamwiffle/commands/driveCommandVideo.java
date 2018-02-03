@@ -1,5 +1,5 @@
 package org.usfirst.frc5265.steamwiffle.commands;
-
+/*
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
- */
+ 
 public class driveCommandVideo extends Command {
 
     public driveCommandVideo() {
@@ -87,7 +87,7 @@ public class driveCommandVideo extends Command {
 		SmartDashboard.putNumber("DB/Slider 1", y);
 		SmartDashboard.putNumber("DB/Slider 2", t);
 		SmartDashboard.putNumber("DB/Slider 3", throttle);
-    	*/
+    	
 		
     	
     	    	
@@ -111,3 +111,4 @@ public class driveCommandVideo extends Command {
     protected void interrupted() {
     }
 }
+*/
