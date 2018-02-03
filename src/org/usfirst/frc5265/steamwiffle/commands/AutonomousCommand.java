@@ -35,7 +35,7 @@ public class AutonomousCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 
-    	Robot.chassis.driveChassisSteering(x_speed, y_speed, twist);
+    	Robot.chassis.driveChassisSteering(x_speed, y_speed);
 
     }
 
@@ -52,7 +52,7 @@ public class AutonomousCommand extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	// stop motion
-    	Robot.chassis.driveChassisSteering(0, 0, 0);
+    	Robot.chassis.driveChassisSteering(0, 0);
         
     }
 

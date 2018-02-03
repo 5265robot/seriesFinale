@@ -17,11 +17,14 @@ public class LeftAlliance extends CommandGroup {
     	
     	double laa1dx = stagValues.laa01dx, laa1dy = stagValues.laa01dy, laa1dt = stagValues.laa01dt, laa1dtime = stagValues.laa01dtime;
     	double laa2dx = stagValues.laa02dx, laa2dy = stagValues.laa02dy, laa2dt = stagValues.laa02dt, laa2dtime = stagValues.laa02dtime; 
-        // Add Commands here:
+    	double laa3dx = stagValues.laa03dx, laa3dy = stagValues.laa03dy, laa3dt = stagValues.laa03dt, laa3dtime = stagValues.laa03dtime;
+    	
+    	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
     	addSequential(new DriveByTime(laa1dx, laa1dy, laa1dt, laa1dtime));
+    	addSequential(new DriveByTime(laa3dx, laa3dy, laa3dt, laa3dtime));
     	addSequential(new DriveByTime(laa2dx, laa2dy, laa2dt, laa2dtime));
         // To run multiple commands at the same time,
         // use addParallel()

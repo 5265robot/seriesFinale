@@ -43,24 +43,20 @@ public class RobotMap {
     public static SpeedController chassisSpeedController1; // Front Right
     public static SpeedController chassisSpeedController2; // Rear Right
     public static SpeedController chassisSpeedController3; // Rear Left
-    public static RobotDrive chassismover;
-    public static AnalogGyro chassisAnalogGyro1;
+    public static SpeedController shooterMotor;
+    
+    public static AnalogPotentiometer pot;
     public static PowerDistributionPanel chassisPowerDistributionPanel1;
-    public static AnalogAccelerometer chassisAnalogAccelerometer1;
-    public static SpeedController fuelspinnies;
+    
+    
+    public static SpeedController brushless;
+   
     public static DigitalInput fuelLimitSwitch1;
-    public static Ultrasonic gearUltrasonic1;
-    //public static Solenoid gearSolenoid1;
-    //public static Compressor airCompressor1;
-    //public static Solenoid airSolenoid1;
-    //public static Relay airRelaySolenoid1;
-    //public static DoubleSolenoid airDoubleSolenoid1;
-    //public static Servo pIDSubsystem1Servo1;
-    //public static Servo pIDSubsystem1Servo2;
-    //public static AnalogPotentiometer pIDSubsystem1AnalogPotentiometer1;
-    //public static Solenoid pIDSubsystem1Solenoid1;
-    //public static SpeedController pIDSubsystem1SpeedController1;
-
+    
+    public static Servo servme;
+    public static DoubleSolenoid airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+    	
+   
     
     public static void init() {
         // declare our Victors, in a clockwise direction across the front and then the back,
@@ -80,16 +76,15 @@ public class RobotMap {
         
         chassisSpeedController3 = new Victor(3); // Rear Left
         LiveWindow.addActuator("chassis", "Speed Controller 3", (Victor) chassisSpeedController3);
+       
         
-        // REMOVED - RobotDrive gives errors and lots of lost packets
-        //chassismover = new RobotDrive(chassisSpeedController0, chassisSpeedController1,
-        //      chassisSpeedController2, chassisSpeedController3);
+        pot = new AnalogPotentiometer(3);
+        LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) pot);
         
-        //chassismover.setSafetyEnabled(true);
-        //chassismover.setExpiration(0.1);
-        //chassismover.setSensitivity(0.5);
-        //chassismover.setMaxOutput(1.0);
-
+        servme = new Servo(9);
+        LiveWindow.addActuator("Servo", 9, (Servo) servme);
+        
+       /*
         chassisAnalogGyro1 = new AnalogGyro(0);
         LiveWindow.addSensor("chassis", "AnalogGyro 1", chassisAnalogGyro1);
         chassisAnalogGyro1.setSensitivity(0.007);
@@ -100,43 +95,20 @@ public class RobotMap {
         LiveWindow.addSensor("chassis", "AnalogAccelerometer 1", chassisAnalogAccelerometer1);
         chassisAnalogAccelerometer1.setSensitivity(0.0);
         chassisAnalogAccelerometer1.setZero(2.5);
+        */
         
-        fuelspinnies = new Victor(4);
-        LiveWindow.addActuator("fuel", "spinnies", (Victor) fuelspinnies);
         
-        fuelLimitSwitch1 = new DigitalInput(2);
-        LiveWindow.addSensor("fuel", "Limit Switch 1", fuelLimitSwitch1);
         
-        gearUltrasonic1 = new Ultrasonic(0, 1);
-        LiveWindow.addSensor("gear", "Ultrasonic 1", gearUltrasonic1);
         
-        //airCompressor1 = new Compressor(0);
+      
+        brushless = new Victor (4);
+        LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
         
-        //airSolenoid1 = new Solenoid(0, 0);
-        //LiveWindow.addActuator("air", "Solenoid 1", airSolenoid1);
         
-        //airRelaySolenoid1 = new Relay(0);
-        //LiveWindow.addActuator("air", "Relay Solenoid 1", airRelaySolenoid1);
+       
         
-        //airDoubleSolenoid1 = new DoubleSolenoid(0, 1, 2);
-        //LiveWindow.addActuator("air", "Double Solenoid 1", airDoubleSolenoid1);
-        //gearSolenoid1 = new Solenoid(0, 3);
-        //LiveWindow.addActuator("gear", "Solenoid 1", gearSolenoid1);
         
-        //pIDSubsystem1Servo1 = new Servo(5);
-        //LiveWindow.addActuator("PID Subsystem 1", "Servo 1", pIDSubsystem1Servo1);
-        
-        //pIDSubsystem1Servo2 = new Servo(6);
-        //LiveWindow.addActuator("PID Subsystem 1", "Servo 2", pIDSubsystem1Servo2);
-        
-        //pIDSubsystem1AnalogPotentiometer1 = new AnalogPotentiometer(2, 1.0, 0.0);
-        //LiveWindow.addSensor("PID Subsystem 1", "Analog Potentiometer 1", pIDSubsystem1AnalogPotentiometer1);
-        
-        //pIDSubsystem1Solenoid1 = new Solenoid(0, 4);
-        //LiveWindow.addActuator("PID Subsystem 1", "Solenoid 1", pIDSubsystem1Solenoid1);
-        
-        //pIDSubsystem1SpeedController1 = new Talon(7);
-        //LiveWindow.addActuator("PID Subsystem 1", "Speed Controller 1", (Talon) pIDSubsystem1SpeedController1);
+        airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         
 
     }

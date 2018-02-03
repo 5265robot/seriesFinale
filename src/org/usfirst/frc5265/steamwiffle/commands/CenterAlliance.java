@@ -22,8 +22,10 @@ public class CenterAlliance extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
     	addSequential(new DriveByTime(caa1dx , caa1dy, caa1dt, caa1dtime));
-    	addSequential(new DriveByTime(caa2dx, caa2dy, caa2dt, caa2dtime));
-    	addSequential(new DriveByTime(caa3dx, caa3dy, caa3dt, caa3dtime));
+    	//addParallel(new shooter(0.48));
+    	//addSequential(new DriveByTime(caa2dx, caa2dy, caa2dt, caa2dtime));
+    	//addSequential(new DriveByTime(caa3dx, caa3dy, caa3dt, caa3dtime));
+    	//addSequential(new IntakeCommand(0.5));
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

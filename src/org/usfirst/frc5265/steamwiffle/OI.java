@@ -14,6 +14,7 @@ package org.usfirst.frc5265.steamwiffle;
 //import org.opencv.*;
 import org.usfirst.frc5265.steamwiffle.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
 import org.usfirst.frc5265.steamwiffle.subsystems.*;
@@ -53,23 +54,41 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
 	// each button must be declared
-    public JoystickButton click01;
+    ;
     public Joystick steering;
-    public JoystickButton plus90;
-    public JoystickButton minus90;
+    
+    public JoystickButton brush;
+    
+    public JoystickButton servoTest;
+    public JoystickButton solTest;
+    public JoystickButton liftup;
+    public JoystickButton liftdown;
+
     
     public OI() {
         
     	// construct the joystick
     	steering = new Joystick(0);
-        
+       
         // construct each button and what happens when it is used
-        click01 = new JoystickButton(steering, 1);
-        	click01.whileHeld(new dothis01());
-        plus90 = new JoystickButton(steering, 8);
-        	plus90.whenPressed(new buttonplus90());
-        minus90 = new JoystickButton(steering, 7);
-        	minus90.whenPressed(new buttonminus90());
+        //click01 = new JoystickButton(steering, 1);
+        	//click01.whileHeld(new dothis01());
+       
+       	solTest = new JoystickButton(steering,2);
+       		solTest.toggleWhenPressed(new SolTest());
+        servoTest = new JoystickButton(steering,3);
+        	servoTest.whenPressed(new servoTest());
+        
+        	
+        liftup = new JoystickButton(steering, 5);
+        	liftup.whileHeld(new LiftUp());
+        liftdown = new JoystickButton(steering, 6);
+        	liftdown.whileHeld(new LiftDown());
+        			
+        //witch2 = new JoystickButton(steering,6);
+        	//witch2.toggleWhenPressed(new witchUp(-1.0));
+        //ultra = new JoystickButton(steering, 11);
+        	//ultra.toggleWhenPressed(new BootySteering());
         
 
         // SmartDashboard Buttons, if we need them, go here
@@ -81,6 +100,7 @@ public class OI {
         //SmartDashboard.putData("Instant Command 1", new InstantCommand1());
         //SmartDashboard.putData("Command Group 1", new CommandGroup1());
         //SmartDashboard.putData("PID Command 1", new PIDCommand1());
+        
 
 
     }
@@ -90,14 +110,20 @@ public class OI {
     public Joystick getsteering() {
         return steering;
     }
-    public double getXSteer() {
-        return steering.getX(); //look up what the actual axis number is
+    public double getForward() {
+
+
+        return steering.getRawAxis(1); //look up what the actual axis number is
+       
+
+
     }
-    public double getYSteer() {
-        return steering.getY(); //look up what the actual axis number is
+    public double getSideways() {
+    return steering.getRawAxis(4); //look up what the actual axis number is
     }
+   
     public double getTwistSteer() {
-        return steering.getTwist(); //look up what the actual axis number is
+        return steering.getRawAxis(0); //look up what the actual axis number is
     }
     public double getPolarDegrees() {
     	return steering.getDirectionDegrees();
@@ -109,8 +135,11 @@ public class OI {
     	return steering.getMagnitude();	
     }
     public double getThrottle() {
-    	return steering.getThrottle();
+    	return steering.getThrottle()-.99;
     }
-    
+    public double getPOV(){
+    	return steering.getPOV();
+    	
+    }
 }
 

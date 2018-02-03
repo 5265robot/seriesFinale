@@ -1,24 +1,20 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
-import org.usfirst.frc5265.steamwiffle.subsystems.*;
+import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
 /**
- * This is the default command for the subsystem 'chassis' and allows driving properly from the joystick
+ *
  */
-public class driveCommandSteer extends Command {
- 
-	
-    public driveCommandSteer() {
+public class driveCommandVideo extends Command {
+
+    public driveCommandVideo() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.chassis);
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +24,6 @@ public class driveCommandSteer extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	
     	double f = 1.0;
     	double voltage = DriverStation.getInstance().getBatteryVoltage();
     	// variables for the raw data from the joystick
@@ -37,10 +32,6 @@ public class driveCommandSteer extends Command {
     	// load the variables from the joystick
     	x = Robot.oi.getForward();
     	y = Robot.oi.getSideways();
-
-    	SmartDashboard.putNumber("forward", x);
-    	SmartDashboard.putNumber("sideways", y);
-
     	t = 0.0;
     	throttle = Robot.oi.getThrottle();
     	//	minMotion = SmartDashboard.getNumber("minimumMotionJoystick", 0.0);
@@ -103,6 +94,7 @@ public class driveCommandSteer extends Command {
     	// steer using those variables
     	Robot.chassis.driveChassisSteering(x, y);
     	
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -117,6 +109,5 @@ public class driveCommandSteer extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
