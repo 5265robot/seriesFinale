@@ -61,7 +61,7 @@ public class RobotMap {
     	// x xxxxxx x
     	// x xxxxxx x
     	// 3 xgearx 2
-    	chassisSpeedController0 = new Victor(0); // Front Left
+    		chassisSpeedController0 = new Victor(0); // Front Left
         //LiveWindow.addActuator("chassis", "Speed Controller 0", (Victor) chassisSpeedController0);
         
         chassisSpeedController1 = new Victor(1); // Front Right
@@ -73,19 +73,16 @@ public class RobotMap {
         chassisSpeedController3 = new Victor(3); // Rear Left
        // LiveWindow.addActuator("chassis", "Speed Controller 3", (Victor) chassisSpeedController3);
        
+        brushless = new Victor (4);
+        //LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
         
         analPot = new AnalogPotentiometer(3);
         //LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
         
         servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
-        
-      
-        brushless = new Victor (4);
-        //LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
-        
-         
-        airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
+                
+        //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         
 
     }
