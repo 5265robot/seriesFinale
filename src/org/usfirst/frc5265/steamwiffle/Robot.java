@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 //import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 //import edu.wpi.first.wpilibj.Ultrasonic;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+//import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.networktables.*;
@@ -104,8 +104,8 @@ public class Robot extends IterativeRobot {
 
         autonomousCommand = new CenterAllianceAutonomous();
         
-        SmartDashboard.putNumber("Timer Delay", .23);
-        SmartDashboard.putNumber("Power", .5);
+       // SmartDashboard.putNumber("Timer Delay", .23);
+       // SmartDashboard.putNumber("Power", .5);
         
         
 
@@ -212,9 +212,9 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during test mode
      */
-    @SuppressWarnings("deprecation")
+    
 	public void testPeriodic() {
-        LiveWindow.run();
+       // LiveWindow.run();
     }
     
     //public void ultrasonicSample() {

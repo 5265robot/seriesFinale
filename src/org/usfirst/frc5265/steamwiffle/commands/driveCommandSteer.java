@@ -3,7 +3,7 @@ package org.usfirst.frc5265.steamwiffle.commands;
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.DriverStation;
 //import edu.wpi.first.wpilibj.Timer;
 
@@ -38,8 +38,8 @@ public class driveCommandSteer extends Command {
     	x = Robot.oi.getForward();
     	y = Robot.oi.getSideways();
 
-    	SmartDashboard.putNumber("forward", x);
-    	SmartDashboard.putNumber("sideways", y);
+    //SmartDashboard.putNumber("forward", x);
+    	//SmartDashboard.putNumber("sideways", y);
 
     	t = 0.0;
     	throttle = Robot.oi.getThrottle();
@@ -60,7 +60,7 @@ public class driveCommandSteer extends Command {
     	*/
     	// Incorporating throttle 
     	throttle = ((-throttle + 1)/2);
-    	SmartDashboard.putNumber("throttle", throttle);
+    //	SmartDashboard.putNumber("throttle", throttle);
         	// x modification
     	if (Math.abs(x) <= minMotion) { // x can be both positive and negative
     		x = 0;
