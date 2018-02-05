@@ -51,6 +51,8 @@ public class RobotMap {
     public static DigitalInput fuelLimitSwitch1;
     public static Servo servme;
     public static DoubleSolenoid airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+    public static DigitalInput upper;
+    public static DigitalInput lower;
     	
    
     
@@ -81,6 +83,10 @@ public class RobotMap {
         
         servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
+        
+        upper = new DigitalInput(6);
+        
+        lower = new DigitalInput(6);
                 
         //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         
