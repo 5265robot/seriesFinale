@@ -13,12 +13,12 @@ package org.usfirst.frc5265.steamwiffle;
 
 //import org.opencv.*;
 import org.usfirst.frc5265.steamwiffle.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc5265.steamwiffle.subsystems.*;
-import edu.wpi.first.wpilibj.interfaces.*;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.GenericHID.Hand;
+//import org.usfirst.frc5265.steamwiffle.subsystems.*;
+//import edu.wpi.first.wpilibj.interfaces.*;
 
 
 /**
@@ -56,9 +56,7 @@ public class OI {
 	// each button must be declared
     ;
     public Joystick steering;
-    
     public JoystickButton brush;
-    
     public JoystickButton servoTest;
     public JoystickButton solTest;
     public JoystickButton liftup;
@@ -74,16 +72,14 @@ public class OI {
         //click01 = new JoystickButton(steering, 1);
         	//click01.whileHeld(new dothis01());
        
-       	solTest = new JoystickButton(steering,2);
+       	solTest = new JoystickButton(steering,1);
        		solTest.toggleWhenPressed(new SolTest());
         servoTest = new JoystickButton(steering,3);
-        	servoTest.whenPressed(new servoTest());
-        
-        	
+        		servoTest.whenPressed(new servoTest());
         liftup = new JoystickButton(steering, 5);
-        	liftup.whileHeld(new LiftUp());
+        		liftup.whileHeld(new LiftUp());
         liftdown = new JoystickButton(steering, 6);
-        	liftdown.whileHeld(new LiftDown());
+        		liftdown.whileHeld(new LiftDown());
         			
         //witch2 = new JoystickButton(steering,6);
         	//witch2.toggleWhenPressed(new witchUp(-1.0));

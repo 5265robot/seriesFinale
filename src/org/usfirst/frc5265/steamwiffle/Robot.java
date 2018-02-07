@@ -14,21 +14,20 @@ package org.usfirst.frc5265.steamwiffle;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.interfaces.Potentiometer;
-import edu.wpi.first.wpilibj.Ultrasonic;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.networktables.*;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DriverStation;
-
-import org.usfirst.frc5265.steamwiffle.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc5265.steamwiffle.subsystems.*;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc5265.steamwiffle.commands.*;
+import edu.wpi.first.wpilibj.DriverStation;
+//import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+//import edu.wpi.first.wpilibj.Ultrasonic;
+//import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+//import edu.wpi.first.wpilibj.networktables.*;
+//import edu.wpi.first.wpilibj.AnalogInput;
+//import edu.wpi.first.wpilibj.AnalogPotentiometer;
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,10 +40,12 @@ public class Robot extends IterativeRobot {
 	
 	Command autonomousCommand;
     SendableChooser <Command> autoChooser;
-    public static NetworkTable Raspberry;
-    
+    //public static NetworkTable Raspberry;
     String gameData;
-    
+    // each subsystem must be declared
+    public static OI oi;
+    public static chassis chassis;
+    public static stagValues stagValues;    
     
     /*
     //public double [] xNet, yNet,wNet,hNet;
@@ -54,15 +55,10 @@ public class Robot extends IterativeRobot {
     double [] hNet = new double[10];
     double[] tester = new double[3];
     double test = 0;
-    
     */
-    // each subsystem must be declared
-    public static OI oi;
-    public static chassis chassis;
 
-    public static stagValues stagValues;
-    
-    public static brushPot brushPot;
+
+  
     
     /**
      * This function is run when the robot is first started up and should be
@@ -70,7 +66,7 @@ public class Robot extends IterativeRobot {
      */
     
     public Robot() {
-    	Raspberry = NetworkTable.getTable("Raspberry");
+    //	Raspberry = NetworkTable.getTable("Raspberry");
     	
     }
  
@@ -80,7 +76,7 @@ public class Robot extends IterativeRobot {
     	RobotMap.init();
         // start each subsystem
     	chassis = new chassis();
-        stagValues = new stagValues();
+    stagValues = new stagValues();
         
         
         
@@ -96,20 +92,16 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         
         //autonomousCommand = new AutonomousCommand();
-        autoChooser = new SendableChooser();
+        //autoChooser = new SendableChooser();
         autoChooser.addDefault("Default Does Nothing", new AutonomousCommand());
         autoChooser.addObject("Center Alliance", new CenterAllianceAutonomous());
         autoChooser.addObject("Right Alliance", new RightAllianceAutonomous());
         autoChooser.addObject("Left Alliance", new LeftAllianceAutonomous());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
-        
-
         autonomousCommand = new CenterAllianceAutonomous();
-        
-        SmartDashboard.putNumber("Timer Delay", .23);
-        SmartDashboard.putNumber("Power", .5);
-        
-        
+        //SmartDashboard.putNumber("Timer Delay", .23);
+        //SmartDashboard.putNumber("Power", .5);
+
 
     }
 
@@ -169,7 +161,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        double degrees = RobotMap.pot.get();
+        //double degrees = RobotMap.pot.get();
         
         //double distance = ultra.getValue();
         //SmartDashboard.putNumber("Distance", distance)
@@ -214,8 +206,9 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during test mode
      */
-    public void testPeriodic() {
-        LiveWindow.run();
+    
+	public void testPeriodic() {
+       // LiveWindow.run();
     }
     
     //public void ultrasonicSample() {

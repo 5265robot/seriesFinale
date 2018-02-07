@@ -2,8 +2,8 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -18,7 +18,12 @@ public class LiftDown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.brushless.set(-.5);
+    	SmartDashboard.putNumber("potVal", RobotMap.analPot.get());
+    		if(RobotMap.analPot.get()>.2) {
+			RobotMap.brushless.set(-.5);
+		}else {
+			RobotMap.brushless.set(0);
+		}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,8 +32,8 @@ public class LiftDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
-        return false;
+    		
+        return !RobotMap.lower.get();
     }
 
     // Called once after isFinished returns true

@@ -14,7 +14,7 @@ public class RightAlliance extends CommandGroup {
     	requires(Robot.chassis);
     	requires(Robot.stagValues);
     	
-    	double raa1dx = stagValues.raa01dx, raa1dy = stagValues.raa01dy, raa1dt = stagValues.raa01dt, raa1dtime = stagValues.raa01dtime;
+    	//double raa1dx = stagValues.raa01dx, raa1dy = stagValues.raa01dy, raa1dt = stagValues.raa01dt, raa1dtime = stagValues.raa01dtime;
     	double raa2dx = stagValues.raa02dx, raa2dy = stagValues.raa02dy, raa2dt = stagValues.raa02dt, raa2dtime = stagValues.raa02dtime;
         //double range = Robot.
     	// Add Commands here:
