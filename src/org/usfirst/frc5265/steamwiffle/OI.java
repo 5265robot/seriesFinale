@@ -73,7 +73,7 @@ public class OI {
         	//click01.whileHeld(new dothis01());
        
        	solTest = new JoystickButton(steering,1);
-       		solTest.toggleWhenPressed(new SolTest());
+       		solTest.whenPressed(new SolTest());
         servoTest = new JoystickButton(steering,3);
         		servoTest.whenPressed(new servoTest());
         liftup = new JoystickButton(steering, 5);
