@@ -2,7 +2,6 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -18,11 +17,8 @@ public class LiftUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		if(RobotMap.analPot.get()<.8) {
-    			RobotMap.brushless.set(.5);
-    		}else {
-    			RobotMap.brushless.set(0);
-    		}
+		RobotMap.brushless.set(.5);
+
     }
 
     // Called repeatedly when this Command is scheduled to run

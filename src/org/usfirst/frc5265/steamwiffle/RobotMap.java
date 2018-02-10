@@ -89,7 +89,7 @@ public class RobotMap {
         try {
             upper = new DigitalInput(6);
             
-            lower = new DigitalInput(6);
+            lower = new DigitalInput(5);
             
             analPot = new AnalogPotentiometer(3);
             
