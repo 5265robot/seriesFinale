@@ -12,6 +12,8 @@ public class stagValues extends Subsystem {
 	// during a match will go here,
 	// and then be put on the dashboard
 	public static boolean tog;
+	public static boolean toggle;
+	public static double what = 1;
 	// DRIVING
 	public static final double minimumMotionJoystick = 0.3; // zero for calibration
 

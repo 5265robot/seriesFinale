@@ -61,6 +61,7 @@ public class OI {
     public JoystickButton solTest;
     public JoystickButton liftup;
     public JoystickButton liftdown;
+    public JoystickButton tog;
 
     
     public OI() {
@@ -71,7 +72,8 @@ public class OI {
         // construct each button and what happens when it is used
         //click01 = new JoystickButton(steering, 1);
         	//click01.whileHeld(new dothis01());
-       
+        tog = new JoystickButton(steering, 2);
+            tog.whenPressed(new thot());
        	solTest = new JoystickButton(steering,1);
        		solTest.whenPressed(new SolTest());
         servoTest = new JoystickButton(steering,3);
@@ -107,17 +109,12 @@ public class OI {
         return steering;
     }
     public double getForward() {
-
-
         return steering.getRawAxis(1); //look up what the actual axis number is
-       
-
-
     }
     public double getSideways() {
     return steering.getRawAxis(4); //look up what the actual axis number is
     }
-   
+   /* commented out by jh on 2/10, none of these are ever used.
     public double getTwistSteer() {
         return steering.getRawAxis(0); //look up what the actual axis number is
     }
@@ -137,5 +134,6 @@ public class OI {
     	return steering.getPOV();
     	
     }
+    */
 }
 
