@@ -88,11 +88,17 @@ public class RobotMap {
         //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         try {
             upper = new DigitalInput(6);
-            
+        }catch(Exception e) {
+    		
+        }try {
             lower = new DigitalInput(5);
-            
+        }catch(Exception e) {
+    		
+        }try { 
             analPot = new AnalogPotentiometer(3);
-            
+        }catch(Exception e) {
+    		
+        }try {
             airDoubleSolenoid1 = new DoubleSolenoid(0,1);
         }catch(Exception e) {
         		
