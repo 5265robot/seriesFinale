@@ -95,7 +95,7 @@ public class RobotMap {
             
             airDoubleSolenoid1 = new DoubleSolenoid(0,1);
         }catch(Exception e) {
-        
+        		
         }
 
     }
