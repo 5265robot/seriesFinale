@@ -48,9 +48,9 @@ public class RobotMap {
     public static AnalogPotentiometer analPot;
     public static PowerDistributionPanel chassisPowerDistributionPanel1;
     public static SpeedController brushless;
-    public static DigitalInput fuelLimitSwitch1;
+//    public static DigitalInput fuelLimitSwitch1;
     public static Servo servme;
-    public static DoubleSolenoid airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+    public static DoubleSolenoid airDoubleSolenoid1; 
     public static DigitalInput upper;
     public static DigitalInput lower;
     	
@@ -78,18 +78,25 @@ public class RobotMap {
         brushless = new Victor (4);
         //LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
         
-        analPot = new AnalogPotentiometer(3);
+        
         //LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
         
         servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
         
-        upper = new DigitalInput(6);
-        
-        lower = new DigitalInput(6);
-                
+
         //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
+        try {
+            upper = new DigitalInput(6);
+            
+            lower = new DigitalInput(6);
+            
+            analPot = new AnalogPotentiometer(3);
+            
+            airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+        }catch(Exception e) {
         
+        }
 
     }
 }

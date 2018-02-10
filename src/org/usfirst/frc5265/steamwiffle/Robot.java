@@ -92,7 +92,8 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         
         //autonomousCommand = new AutonomousCommand();
-        //autoChooser = new SendableChooser();
+        
+        autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Default Does Nothing", new AutonomousCommand());
         autoChooser.addObject("Center Alliance", new CenterAllianceAutonomous());
         autoChooser.addObject("Right Alliance", new RightAllianceAutonomous());
