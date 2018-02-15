@@ -94,12 +94,12 @@ public class Robot extends IterativeRobot {
         //autonomousCommand = new AutonomousCommand();
         
         autoChooser = new SendableChooser<Command>();
-        autoChooser.addDefault("Default Does Nothing", new AutonomousCommand());
-        autoChooser.addObject("Center Alliance", new CenterAllianceAutonomous());
-        autoChooser.addObject("Right Alliance", new RightAllianceAutonomous());
-        autoChooser.addObject("Left Alliance", new LeftAllianceAutonomous());
+        autoChooser.addDefault("Default Does Nothing", new AllianceAutonomous("nothing"));
+        autoChooser.addObject("Center Alliance", new AllianceAutonomous("center"));
+        autoChooser.addObject("Right Alliance", new AllianceAutonomous("right"));
+        autoChooser.addObject("Left Alliance", new AllianceAutonomous("left"));
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
-        autonomousCommand = new CenterAllianceAutonomous();
+        autonomousCommand = new AllianceAutonomous("center");
         //SmartDashboard.putNumber("Timer Delay", .23);
         //SmartDashboard.putNumber("Power", .5);
 

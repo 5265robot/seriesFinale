@@ -7,23 +7,32 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class RightAllianceAutonomous extends Command {
-	Command autoRight;
-
-    public RightAllianceAutonomous() {
+public class AllianceAutonomous extends Command {
+	Command autoMiddle;
+	String pos;
+    public AllianceAutonomous(String place) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.chassis);
+    	pos = place;
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	autoRight = new RightAlliance();
+    	if(pos == "center") {
+    		autoMiddle = new AutoAlliance("center");
+    	}
+    	if(pos == "right") {
+    		autoMiddle = new AutoAlliance("right");
+    	}
+    	if(pos == "left") {
+    		autoMiddle = new AutoAlliance("left");    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	autoRight.start();
+    	 autoMiddle.start();
     }
 
     // Make this return true when this Command no longer needs to run execute()

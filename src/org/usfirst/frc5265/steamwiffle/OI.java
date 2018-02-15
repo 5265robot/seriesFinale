@@ -73,15 +73,15 @@ public class OI {
         //click01 = new JoystickButton(steering, 1);
         	//click01.whileHeld(new dothis01());
         tog = new JoystickButton(steering, 2);
-            tog.whenPressed(new thot());
+            tog.whenPressed(new arm());
        	solTest = new JoystickButton(steering,1);
        		solTest.whenPressed(new SolTest());
         servoTest = new JoystickButton(steering,3);
         		servoTest.whenPressed(new servoTest());
         liftup = new JoystickButton(steering, 5);
-        		liftup.whileHeld(new LiftUp());
+        		liftup.whileHeld(new Lift(true));
         liftdown = new JoystickButton(steering, 6);
-        		liftdown.whileHeld(new LiftDown());
+        		liftdown.whileHeld(new Lift(false));
         			
         //witch2 = new JoystickButton(steering,6);
         	//witch2.toggleWhenPressed(new witchUp(-1.0));
@@ -127,9 +127,11 @@ public class OI {
     public double getPolarMagnitude() {
     	return steering.getMagnitude();	
     }
+    */
     public double getThrottle() {
     	return steering.getThrottle()-.99;
     }
+    /*
     public double getPOV(){
     	return steering.getPOV();
     	

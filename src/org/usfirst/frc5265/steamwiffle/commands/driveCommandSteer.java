@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.DriverStation;
 //import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 
@@ -33,15 +33,15 @@ public class driveCommandSteer extends Command {
    // 	double f = 1.0;
    // 	double voltage = DriverStation.getInstance().getBatteryVoltage();
     	// variables for the raw data from the joystick
-    	double x, y, minMotion,thot;
+    	double x, y, minMotion,throttle;
     	
     	// load the variables from the joystick
     	x = Robot.oi.getForward();
     	y = Robot.oi.getSideways();
-    	thot = stagValues.what;
+    //	thot = stagValues.what;
     	
     	//if(thot == 0) stagValues.what = 1.0;
-    	SmartDashboard.putNumber("tog", stagValues.what);
+    //	SmartDashboard.putNumber("tog", stagValues.what);
 
     	
     //SmartDashboard.putNumber("forward", x);
@@ -49,7 +49,7 @@ public class driveCommandSteer extends Command {
 
     	//t = 0.0;
     	//commented out by jh 2/10 
-    //	throttle = Robot.oi.getThrottle();
+    throttle = Robot.oi.getThrottle();
     	//throttle = 1;
     	//	minMotion = SmartDashboard.getNumber("minimumMotionJoystick", 0.0);
     	minMotion = stagValues.minimumMotionJoystick;
@@ -67,29 +67,29 @@ public class driveCommandSteer extends Command {
     	}
     	*/
     	// Incorporating throttle 
-    	//throttle = ((-throttle + 1)/2);
+    	throttle = ((-throttle + 1)/2);
     //	SmartDashboard.putNumber("throttle", throttle);
         	// x modification
     	if (Math.abs(x) <= minMotion) { // x can be both positive and negative
     		x = 0;
     	}
-    	/*
+    	
     	else {
     		//x = Math.pow(x, pwr) * Math.abs(x)/x; // sqr of value gets better control at low speed
     		x = x * throttle;
     		}
-		*/
+		
     
     	// y modification
     	if (Math.abs(y) <= minMotion) { // y can be both positive and negative
     		y = 0;
     	}
-    	/*
+    	
     	else {
     		//y = Math.pow(y, pwr) * Math.abs(y)/y; // sqr of value gets better control at low speed
     		y = y* throttle;
     		}
-    		*/
+    		
 		/*
     	// t modification
     	if (Math.abs(t) <= minMotion) { // t can be both positive and negative
@@ -112,7 +112,7 @@ public class driveCommandSteer extends Command {
     	
     	    	
     	// steer using those variables
-    	chassis.driveChassisSteering(x*thot, y*thot);
+    	chassis.driveChassisSteering(x, y);
     	
     }
 
