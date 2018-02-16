@@ -90,7 +90,6 @@ public class RobotMap {
         }catch(Exception e) {
         	
         }
-        
         //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
         try {
             upper = new DigitalInput(6);

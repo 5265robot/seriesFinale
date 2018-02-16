@@ -76,8 +76,6 @@ public class OI {
             tog.whenPressed(new arm());
        	solTest = new JoystickButton(steering,1);
        		solTest.whenPressed(new SolTest());
-        servoTest = new JoystickButton(steering,3);
-        		servoTest.whenPressed(new servoTest());
         liftup = new JoystickButton(steering, 5);
         		liftup.whileHeld(new Lift(true));
         liftdown = new JoystickButton(steering, 6);

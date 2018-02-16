@@ -31,7 +31,12 @@ public class stagValues extends Subsystem {
 	public static final double caa03dx = 0.0, caa03dy = 0.0, caa03dtime = 1.0;
 	
 	//Lift power
+	public static final double Liftpower = .5;
 	
+	//Arm power and pot limits
+	public static final double upperLimit = .7;
+	public static final double lowerLimit = .7;
+	public static final double armPower = .5;
 
     public void initDefaultCommand() {
         // This is where we put the above values to the SmartDashboard

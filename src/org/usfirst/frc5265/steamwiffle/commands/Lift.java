@@ -2,6 +2,8 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
+import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,19 +11,21 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Lift extends Command {
 	public boolean dir;
+	public double power;
     public Lift(boolean direction) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.chassis);
     	dir = direction;
+    	power = stagValues.Liftpower;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	if(dir) {
-		RobotMap.brushless.set(.5);
+		RobotMap.brushless.set(power);
     	}else {
-    		RobotMap.brushless.set(-.5);
+    		RobotMap.brushless.set(-power);
     	}
     }
 

@@ -1,6 +1,8 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.RobotMap;
+import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -10,6 +12,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class arm extends Command {
 	boolean pos;
+	private double power = stagValues.armPower;
+	private double upLimit = stagValues.upperLimit;
+	private double lowLimit = stagValues.lowerLimit;
     public arm() {
         // Use requires() here to declare subsystem dependencies
     }
@@ -17,15 +22,15 @@ public class arm extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     		RobotMap.arm.enable();
-    		pos = (RobotMap.analPot.get() > .7);
+    		pos = (RobotMap.analPot.get() > upLimit);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     			if(pos) {
-    				RobotMap.arm.set(-.3);
+    				RobotMap.arm.set(-power);
     			}else {
-    				RobotMap.arm.set(.3);
+    				RobotMap.arm.set(power);
     			}
     }
 
@@ -33,13 +38,13 @@ public class arm extends Command {
     protected boolean isFinished() {
     		SmartDashboard.putNumber("pot", RobotMap.analPot.get());
     		if(pos) {
-    			if(RobotMap.analPot.get() < .4) {
+    			if(RobotMap.analPot.get() < lowLimit) {
     				RobotMap.arm.set(0);
     				RobotMap.arm.disable();
     				return true;
     			}
     		}else {
-    			if(RobotMap.analPot.get() > .8) {
+    			if(RobotMap.analPot.get() > upLimit) {
     				RobotMap.arm.set(0);
     				RobotMap.arm.disable();
     				return true;

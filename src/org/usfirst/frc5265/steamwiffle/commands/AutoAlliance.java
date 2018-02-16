@@ -53,7 +53,7 @@ public class AutoAlliance extends CommandGroup {
     	
     	
     	//RIGHT AUTO
-    	if(auto == "right") {
+    	else if(auto == "right") {
     		double raa2dx = stagValues.raa02dx, raa2dy = stagValues.raa02dy, raa2dtime = stagValues.raa02dtime;
     		
     		
@@ -68,7 +68,7 @@ public class AutoAlliance extends CommandGroup {
     	
     	
     	//LEFT AUTO
-    	if(auto == "left") {
+    	else if(auto == "left") {
         	double laa1dx = stagValues.laa01dx, laa1dy = stagValues.laa01dy, laa1dtime = stagValues.laa01dtime;
         	double laa2dx = stagValues.laa02dx, laa2dy = stagValues.laa02dy, laa2dtime = stagValues.laa02dtime; 
         	double laa3dx = stagValues.laa03dx, laa3dy = stagValues.laa03dy, laa3dtime = stagValues.laa03dtime;
