@@ -15,6 +15,7 @@ public class arm extends Command {
 	private double power = stagValues.armPower;
 	private double upLimit = stagValues.upperLimit;
 	private double lowLimit = stagValues.lowerLimit;
+	boolean stuck;
     public arm() {
         // Use requires() here to declare subsystem dependencies
     }
@@ -22,16 +23,21 @@ public class arm extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     		RobotMap.arm.enable();
+    		
     		pos = (RobotMap.analPot.get() > upLimit);
+    		stuck = 	(RobotMap.analPot.get()  > lowLimit && RobotMap.analPot.get() < upLimit ); 
+        		
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    			if(pos) {
-    				RobotMap.arm.set(-power);
-    			}else {
-    				RobotMap.arm.set(power);
-    			}
+    if(stuck) {
+		RobotMap.arm.set(.5);
+    		}else if(pos) {
+			RobotMap.arm.set(-power);
+		}else {
+			RobotMap.arm.set(power);
+		}	
     }
 
     // Make this return true when this Command no longer needs to run execute()

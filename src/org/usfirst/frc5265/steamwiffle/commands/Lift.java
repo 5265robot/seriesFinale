@@ -22,10 +22,12 @@ public class Lift extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(dir) {
-		RobotMap.brushless.set(power);
-    	}else {
-    		RobotMap.brushless.set(-power);
+    	if(RobotMap.analPot.get() > stagValues.potCheck || stagValues.tog == false) {
+    		if(dir) {
+    			RobotMap.brushless.set(power);
+    		}else {
+    			RobotMap.brushless.set(-power);
+    		}
     	}
     }
 
@@ -35,10 +37,14 @@ public class Lift extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(dir) {
-        return  !RobotMap.upper.get();
-    	}else {
-    		return !RobotMap.lower.get();
+    	if(RobotMap.analPot.get() > stagValues.potCheck || stagValues.tog == false) {
+    		if(dir) {
+    			return  !RobotMap.upper.get();
+    		}else {
+    			return !RobotMap.lower.get();
+    		}
+    	} else {
+    		return true;
     	}
     }
 

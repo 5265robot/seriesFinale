@@ -97,6 +97,8 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("Default Does Nothing", new AllianceAutonomous("nothing"));
         autoChooser.addObject("Center Alliance", new AllianceAutonomous("center"));
         autoChooser.addObject("Right Alliance", new AllianceAutonomous("right"));
+        autoChooser.addObject("Right Alliance - No Scale", new AllianceAutonomous("rightNoScale"));
+        autoChooser.addObject("Left Alliancee - No Scale", new AllianceAutonomous("leftNoScale"));
         autoChooser.addObject("Left Alliance", new AllianceAutonomous("left"));
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         autonomousCommand = new AllianceAutonomous("center");

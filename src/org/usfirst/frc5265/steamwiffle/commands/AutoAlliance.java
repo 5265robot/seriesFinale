@@ -1,9 +1,11 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
+import org.usfirst.frc5265.steamwiffle.RobotMap;
 //import org.usfirst.frc5265.steamwiffle.RobotMap;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -13,65 +15,157 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoAlliance extends CommandGroup {
 	String gameData = DriverStation.getInstance().getGameSpecificMessage();
-
+	String[] game = new String[3];
+	
+	
     public AutoAlliance(String auto) {
-    //	requires(Robot.chassis);
     	requires(Robot.stagValues);
-    
+    game = gameData.split("");
+	double c1x = stagValues.c1x, c1y = stagValues.c1y, c1t = stagValues.c1t;
+    double c2x = stagValues.c2x, c2y = stagValues.c2y, c2t = stagValues.c2t;
+	double c3x = stagValues.c3x, c3y = stagValues.c3y, c3t = stagValues.c3t;
+	double c4x = stagValues.c4x, c4y = stagValues.c4y, c4t = stagValues.c4t;
+	double c5x = stagValues.c5x, c5y = stagValues.c5y, c5t = stagValues.c5t;
+	double c6x = stagValues.c6x, c6y = stagValues.c6y, c6t = stagValues.c6t;
     	
-    	
+	 double l1x = stagValues.l1x, l1y = stagValues.l1y, l1t = stagValues.l1t;
+	//2nd stage for no scale "n"
+     double l1nx = stagValues.l1nx, l1ny = stagValues.l1ny, l1nt = stagValues.l1nt;
+	 double l2x = stagValues.l2x, l2y = stagValues.l2y, l2t = stagValues.l2t;
+//	 double l3x = stagValues.l3x, l3y = stagValues.l3y, l3t = stagValues.l3t;
     	//CENTER AUTO
+	 
+	 // arm powers and time
+	 double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpP, halfUpP = stagValues.halfUpT;
+	 
+	 // make sure its reverse everytime
+	 RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
     	if(auto == "center") {
-    	double caa1dx = stagValues.caa01dx, caa1dy = stagValues.caa01dy,  caa1dtime = stagValues.caa01dtime;
-    //	double caa2dx = stagValues.caa02dx, caa2dy = stagValues.caa02dy, caa2dt = stagValues.caa02dt, caa2dtime = stagValues.caa02dtime;
-    //	double caa3dx = stagValues.caa03dx, caa3dy = stagValues.caa03dy, caa3dt = stagValues.caa03dt, caa3dtime = stagValues.caa03dtime;
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-    //	addParallel(new)
-    	//forward
-    	addSequential(new DriveByTime(caa1dx , caa1dy, caa1dtime));
-    	//lift up
-    	addParallel(new timeLift(.5,.5));
-    	//turn toward L or R
-    	if(gameData.charAt(0) == 'R') {
-    		addSequential(new DriveByTime(caa1dx , caa1dy, caa1dtime));
-    	}else {
-    	    addSequential(new DriveByTime(caa1dx , caa1dy, caa1dtime));
-    	}
-    	// turn towards low goal
-    	if(!(gameData.charAt(0) == 'R')) {
-    		addSequential(new DriveByTime(caa1dx , caa1dy, caa1dtime));
-    	}else {
-    	    addSequential(new DriveByTime(caa1dx , caa1dy, caa1dtime));
-    	}
-    		addSequential(new SolTest());
-    	}
-    	
-    	
+    		
+    		//turn toward L or R
+    		if(game[1].equals("R")) {
+    			addSequential(new DriveByTime(-c1x, c1y, c1t));
+    		}else {
+    			addSequential(new DriveByTime(c1x, c1y, c1t));
+    		}
+    		
+    		//lift up
+    		addParallel(new timeLift(halfUpP, halfUpT));
+    		
+        	//go forward towards goal
+    		addSequential(new DriveByTime(-c2x, c2y, c2t));
+    		
+    		//turn back towards goal
+    		if(game[1].equals("R")) {
+    			addSequential(new DriveByTime(c3x, c3y, c3t));
+    		}else {
+    			addSequential(new DriveByTime(-c3x, c3y, c3t));
+    		}
+    		  	
+    	    // drop cube
+		addSequential(new SolTest());
+		
+		//back up
+	    addSequential(new DriveByTime(c4x, c4y, c4t));
+	    
+	    //turn away 
+	    if(game[1].equals("R")) {
+			addSequential(new DriveByTime(-c5x, c5y, c5t));
+		}else {
+			addSequential(new DriveByTime(c5x, c5y, c5t));
+		}
+	    
+	    //go forward over the line
+		addSequential(new DriveByTime(c6x, c6y, c6t));
+
+   
+    		}
     	
     	
     	//RIGHT AUTO
     	else if(auto == "right") {
-    		double raa2dx = stagValues.raa02dx, raa2dy = stagValues.raa02dy, raa2dtime = stagValues.raa02dtime;
+    		if(game[2].equals("R")) {
+    			//forward
+    			addSequential( new DriveByTime(l1x, l1y, l1t));
+    			//twist
+    			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			//lift up
+        		addParallel(new timeLift(allUpP,allUpT));
+        		//drop cube
+        		addParallel(new SolTest());
+
+    		}else if(game[1].equals("R")) {
+    			//forward
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    			//twist
+    			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			//lift up
+
+    		}else {
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    		}
     		
     		
     		
     		
-    		
-    		
+    	//RIGHT NO SCALE	
+    	}else if(auto == "rightNoScale") {
+    		if(game[1].equals("R")) {
+    			//forward
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    			//twist - negative from left
+    			addSequential( new DriveByTime(-l2x, l2y, l2t));
+    			//lift up
+
+    		}else {
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    		}
+    	
+    	
+    	
     	}
-    	
-    	
-    	
-    	
     	
     	//LEFT AUTO
     	else if(auto == "left") {
-        	double laa1dx = stagValues.laa01dx, laa1dy = stagValues.laa01dy, laa1dtime = stagValues.laa01dtime;
-        	double laa2dx = stagValues.laa02dx, laa2dy = stagValues.laa02dy, laa2dtime = stagValues.laa02dtime; 
-        	double laa3dx = stagValues.laa03dx, laa3dy = stagValues.laa03dy, laa3dtime = stagValues.laa03dtime;
+    		// figure out where they are and move accordingly 
+    		if(game[2].equals("L")) {
+    			//forward
+    			addSequential( new DriveByTime(l1x, l1y, l1t));
+    			//twist
+    			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			//lift up
+        		addParallel(new timeLift(allUpP,allUpT));
+        		//drop cube
+        		addParallel(new SolTest());
+
+    		}else if(game[1].equals("L")) {
+    			//forward
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    			//twist
+    			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			//lift up
+
+    		}else {
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    		}
+    		
+    		
+    		//twist
+    		
+    		
+    			
+    	//LEFT NO SCALE
+    	} else if(auto == "leftNoScale") {
+    		if(game[1].equals("L")) {
+    			//forward
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    			//twist
+    			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			//lift up
+
+    		}else {
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    		}
     		
     		
     		

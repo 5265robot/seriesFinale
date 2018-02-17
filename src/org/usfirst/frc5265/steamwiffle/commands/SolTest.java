@@ -23,6 +23,7 @@ public class SolTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(RobotMap.analPot.get() > stagValues.potCheck) {
     		if(stagValues.tog) {
     			RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kForward);
     			stagValues.tog = !stagValues.tog;
@@ -30,7 +31,9 @@ public class SolTest extends Command {
     			RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
     			stagValues.tog = !stagValues.tog;
     		}
-    		end();
+    		
+    		}
+    	end();
     }
 
     // Make this return true when this Command no longer needs to run execute()

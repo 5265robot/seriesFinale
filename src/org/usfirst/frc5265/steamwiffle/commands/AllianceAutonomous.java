@@ -23,11 +23,18 @@ public class AllianceAutonomous extends Command {
     	if(pos == "center") {
     		autoMiddle = new AutoAlliance("center");
     	}
-    	if(pos == "right") {
+    	else if(pos == "right") {
     		autoMiddle = new AutoAlliance("right");
     	}
-    	if(pos == "left") {
-    		autoMiddle = new AutoAlliance("left");    	}
+    	else if(pos == "left") {
+    		autoMiddle = new AutoAlliance("left");    	
+    }
+    else if(pos == "leftNoScale") {
+    		autoMiddle = new AutoAlliance("leftNoScale");
+    }
+    else if(pos == "rightNoScale") {
+    		autoMiddle = new AutoAlliance("rightNoScale");
+    }
     }
 
     // Called repeatedly when this Command is scheduled to run

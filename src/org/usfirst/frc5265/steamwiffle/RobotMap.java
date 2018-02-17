@@ -89,9 +89,7 @@ public class RobotMap {
         	    arm = new NidecBrushless(9,9);
         }catch(Exception e) {
         	
-        }
-        //airDoubleSolenoid1.set(DoubleSolenoid.Value.kOff);
-        try {
+        }try {
             upper = new DigitalInput(6);
         }catch(Exception e) {
     		
