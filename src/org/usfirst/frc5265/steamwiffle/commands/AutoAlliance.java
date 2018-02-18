@@ -64,6 +64,9 @@ public class AutoAlliance extends CommandGroup {
     	    // drop cube
 		addSequential(new SolTest());
 		
+		//lift down
+		addSequential(new timeLift(-halfUpP, halfUpT));
+		
 		//back up
 	    addSequential(new DriveByTime(c4x, c4y, c4t));
 	    
@@ -92,6 +95,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(allUpP,allUpT));
         		//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-allUpP, allUpT));
 
     		}else if(game[1].equals("R")) {
     			//forward
@@ -102,6 +107,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(halfUpP, halfUpT));
     			//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-halfUpP, halfUpT));
     		}else {
     			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
     		}
@@ -120,6 +127,8 @@ public class AutoAlliance extends CommandGroup {
     			addParallel(new timeLift(halfUpP, halfUpT));
     			//drop cube
     			addParallel(new SolTest());
+    			//lift down
+    			addSequential(new timeLift(-halfUpP, halfUpT));
     		}else if(game[2].equals("R")){
     			addSequential( new DriveByTime(l1x, l1y, l1t));
     			//twist
@@ -128,6 +137,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(allUpP,allUpT));
         		//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-allUpP, allUpT));
     		}else {
     			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
     		}
@@ -148,6 +159,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(allUpP,allUpT));
         		//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-allUpP, allUpT));
 
     		}else if(game[1].equals("L")) {
     			//forward
@@ -158,6 +171,8 @@ public class AutoAlliance extends CommandGroup {
     			addParallel(new timeLift(halfUpP, halfUpT));
     			//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-halfUpP, halfUpT));
 
     		}else {
     			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
@@ -179,6 +194,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(halfUpP, halfUpT));
     			//drop cube
         		addSequential(new SolTest());
+        		//lift down
+        		addSequential(new timeLift(-halfUpP, halfUpT));
 
     		}else if(game[2].equals("L")){
     			//forward
@@ -189,6 +206,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential(new timeLift(allUpP,allUpT));
         		//drop cube
     			addSequential(new SolTest());
+    			//lift down
+    			addSequential(new timeLift(-allUpP, halfUpT));
     		}else {
     			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
     		}

@@ -18,7 +18,7 @@ import org.usfirst.frc5265.steamwiffle.subsystems.*;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc5265.steamwiffle.commands.*;
-import edu.wpi.first.wpilibj.DriverStation;
+//import edu.wpi.first.wpilibj.DriverStation;
 //import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 //import edu.wpi.first.wpilibj.Ultrasonic;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
