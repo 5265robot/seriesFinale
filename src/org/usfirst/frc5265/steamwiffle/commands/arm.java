@@ -2,7 +2,6 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.RobotMap;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 

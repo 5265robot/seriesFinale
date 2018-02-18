@@ -1,7 +1,7 @@
 package org.usfirst.frc5265.steamwiffle.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *
@@ -12,6 +12,8 @@ public class stagValues extends Subsystem {
 	// during a match will go here,
 	// and then be put on the dashboard
 	//for solTest
+    
+  
 	public static boolean tog = true;
 	// DRIVING
 	public static final double minimumMotionJoystick = 0.3; // zero for calibration
@@ -44,12 +46,14 @@ public class stagValues extends Subsystem {
 	public static final double allUpT = 0.0, allUpP = 0.0, halfUpT = 0.0, halfUpP = 0.0;
 	
 	//Lift power
-	public static final double Liftpower = .5;
+	public static double Liftpower =  .3;
+	
+   
 	
 	//Arm power and pot limits
 	public static final double upperLimit = .7;
-	public static final double lowerLimit = .7;
-	public static final double armPower = .5;
+	public static final double lowerLimit = .2;
+	public static final double armPower = .3;
 	
 	// limit for making sure arm is out of pot when solenoid fires
 	public static final double potCheck = .4;
@@ -60,7 +64,7 @@ public class stagValues extends Subsystem {
     public void initDefaultCommand() {
         // This is where we put the above values to the SmartDashboard
     	// using SmartDashboard.put ...
-    	
+ 
     
 
     }

@@ -2,11 +2,8 @@ package org.usfirst.frc5265.steamwiffle.commands;
 
 import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
-//import org.usfirst.frc5265.steamwiffle.RobotMap;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-//import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -28,18 +25,18 @@ public class AutoAlliance extends CommandGroup {
 	double c5x = stagValues.c5x, c5y = stagValues.c5y, c5t = stagValues.c5t;
 	double c6x = stagValues.c6x, c6y = stagValues.c6y, c6t = stagValues.c6t;
     	
-	 double l1x = stagValues.l1x, l1y = stagValues.l1y, l1t = stagValues.l1t;
+	double l1x = stagValues.l1x, l1y = stagValues.l1y, l1t = stagValues.l1t;
 	//2nd stage for no scale "n"
-     double l1nx = stagValues.l1nx, l1ny = stagValues.l1ny, l1nt = stagValues.l1nt;
-	 double l2x = stagValues.l2x, l2y = stagValues.l2y, l2t = stagValues.l2t;
+    double l1nx = stagValues.l1nx, l1ny = stagValues.l1ny, l1nt = stagValues.l1nt;
+	double l2x = stagValues.l2x, l2y = stagValues.l2y, l2t = stagValues.l2t;
 //	 double l3x = stagValues.l3x, l3y = stagValues.l3y, l3t = stagValues.l3t;
     	//CENTER AUTO
 	 
 	 // arm powers and time
-	 double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpP, halfUpP = stagValues.halfUpT;
+	double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpP, halfUpP = stagValues.halfUpT;
 	 
 	 // make sure its reverse everytime
-	 RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
     	if(auto == "center") {
     		
     		//turn toward L or R
@@ -218,20 +215,5 @@ public class AutoAlliance extends CommandGroup {
     		
     		
     	}
-    	
-    	//addSequential(new DriveByTime(caa2dx, caa2dy, caa2dt, caa2dtime));
-    	//addSequential(new DriveByTime(caa3dx, caa3dy, caa3dt, caa3dtime));
-    	//addSequential(new IntakeCommand(0.5));
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
     }
 }

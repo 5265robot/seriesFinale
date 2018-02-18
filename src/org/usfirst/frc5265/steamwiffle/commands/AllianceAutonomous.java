@@ -10,9 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AllianceAutonomous extends Command {
 	Command autoMiddle;
 	String pos;
-    public AllianceAutonomous(String place) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public AllianceAutonomous(String place) {;
     	requires(Robot.chassis);
     	pos = place;
     	
