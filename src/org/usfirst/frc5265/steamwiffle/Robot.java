@@ -126,15 +126,6 @@ public class Robot extends IterativeRobot {
 
     	autonomousCommand = autoChooser.getSelected();
     	
-    	gameData = DriverStation.getInstance().getGameSpecificMessage();
-    	
-    	if(gameData.charAt(0) == 'R'){
-    		//right side
-    		
-    	} else{
-    		//left side
-    		
-    	}
 
         if (autonomousCommand != null) autonomousCommand.start();
         }
