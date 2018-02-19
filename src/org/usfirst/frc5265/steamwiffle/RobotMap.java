@@ -46,6 +46,7 @@ public class RobotMap {
     public static SpeedController chassisSpeedController2; // Rear Right
     public static SpeedController chassisSpeedController3; // Rear Left
     public static SpeedController shooterMotor; 
+    public static SpeedController chubby;
     public static AnalogPotentiometer analPot;
     public static PowerDistributionPanel chassisPowerDistributionPanel1;
     public static SpeedController brushless;
@@ -77,19 +78,19 @@ public class RobotMap {
         chassisSpeedController3 = new Victor(3); // Rear Left
        // LiveWindow.addActuator("chassis", "Speed Controller 3", (Victor) chassisSpeedController3);
        
-        brushless = new Victor (4);
+        brushless = new Victor(4);
         //LiveWindow.addActuator("brush", "brush motor", (Victor) brushless);
         
-        
+        chubby = new Victor(5);
         //LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
         
         //servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
-        try {
-        	    arm = new NidecBrushless(9,9);
-        }catch(Exception e) {
+        
+        	    arm = new NidecBrushless(8,8);
+       
         	
-        }try {
+        try {
             upper = new DigitalInput(0);
         }catch(Exception e) {
     		

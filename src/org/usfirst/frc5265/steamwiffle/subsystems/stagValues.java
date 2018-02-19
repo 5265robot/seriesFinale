@@ -13,7 +13,7 @@ public class stagValues extends Subsystem {
 	// and then be put on the dashboard
 	//for solTest
     
-  
+	//TRUE IS IN FALSE IS OUT
 	public static boolean tog = true;
 	// DRIVING
 	public static final double minimumMotionJoystick = 0.3; // zero for calibration
@@ -53,7 +53,7 @@ public class stagValues extends Subsystem {
 	//Arm power and pot limits
 	public static final double upperLimit = .7;
 	public static final double lowerLimit = .2;
-	public static final double armPower = .3;
+	public static final double armPower = 1;
 	
 	// limit for making sure arm is out of pot when solenoid fires
 	public static final double potCheck = .4;
