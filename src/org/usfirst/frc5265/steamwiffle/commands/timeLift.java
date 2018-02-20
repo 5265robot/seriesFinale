@@ -22,7 +22,7 @@ public class timeLift extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(RobotMap.analPot.get() > stagValues.potCheck || stagValues.tog == false) {
+    	if(RobotMap.analPot.get() < stagValues.potCheck || stagValues.tog == false) {
     		RobotMap.brushless.set(p);
     		Timer.delay(.1);
     	}

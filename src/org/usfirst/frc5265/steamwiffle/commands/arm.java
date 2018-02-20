@@ -22,32 +22,39 @@ public class arm extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     		//RobotMap.arm.enable();
+    //	SmartDashboard.putString("stuck", "off");
+    		pos = (RobotMap.analPot.get() > lowLimit);
     		
-    		pos = (1-RobotMap.analPot.get() > upLimit);
-    		stuck = 	(1-RobotMap.analPot.get()  > lowLimit && 1-RobotMap.analPot.get() < upLimit ); 
+    		stuck = 	(RobotMap.analPot.get()  < lowLimit && RobotMap.analPot.get() > upLimit ); 
+    		SmartDashboard.putString("running", "yes");
+    		SmartDashboard.putBoolean("stuck", stuck);
+
         		
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     if(stuck) {
-		RobotMap.chubby.set(.5);
-		SmartDashboard.putString("on", "yes");
-    		}else if(pos) {
-    			
+		RobotMap.chubby.set(-power);
+		SmartDashboard.putString("stuck", "yes");
+
+	//	SmartDashboard.putString("on", "yes");
+    		}
+    else if(pos) {
 			RobotMap.chubby.set(-power);
 			SmartDashboard.putString("on", "yes");
-		}else {
+		}
+    else {
 			RobotMap.chubby.set(power);
 			SmartDashboard.putString("on", "yes");
 		}	
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    		SmartDashboard.putNumber("pot", 1-RobotMap.analPot.get());
-    		if(pos) {
-    			if(1-RobotMap.analPot.get() < lowLimit) {
+    protected boolean isFinished() {	
+    		//SmartDashboard.putNumber("pot", RobotMap.analPot.get());
+    		if(pos || stuck) {
+    			if(RobotMap.analPot.get() < upLimit) {
     				SmartDashboard.putString("on", "no");
 
     				RobotMap.chubby.set(0);
@@ -55,7 +62,7 @@ public class arm extends Command {
     				return true;
     			}
     		}else {
-    			if(1-RobotMap.analPot.get() > upLimit) {
+    			if(RobotMap.analPot.get() > lowLimit) {
     				RobotMap.chubby.set(0);
     				//RobotMap.arm.disable();
     				SmartDashboard.putString("on", "no");

@@ -13,6 +13,8 @@ package org.usfirst.frc5265.steamwiffle;
 
 //import org.opencv.*;
 import org.usfirst.frc5265.steamwiffle.commands.*;
+import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -57,7 +59,8 @@ public class OI {
     ;
     public Joystick steering;
     public JoystickButton brush;
-    public JoystickButton servoTest;
+    public JoystickButton armPos;
+    public JoystickButton armPosH;
     public JoystickButton solTest;
     public JoystickButton liftup;
     public JoystickButton liftdown;
@@ -80,6 +83,11 @@ public class OI {
         		liftup.whileHeld(new Lift(true));
         liftdown = new JoystickButton(steering, 6);
         		liftdown.whileHeld(new Lift(false));
+        	armPos = new JoystickButton(steering, 3);
+        		armPos.whenPressed(new armPos(stagValues.startPos));
+        armPosH = new JoystickButton(steering, 3);
+        		armPosH.whenPressed(new armPos(stagValues.maxH));
+        		
         			
         //witch2 = new JoystickButton(steering,6);
         	//witch2.toggleWhenPressed(new witchUp(-1.0));

@@ -24,7 +24,8 @@ public class SolTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(1-RobotMap.analPot.get() > stagValues.potCheck) {
+    	SmartDashboard.putNumber("pot", RobotMap.analPot.get());
+    	if(RobotMap.analPot.get() < stagValues.potCheck) {
     		if(stagValues.tog) {
     			RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kForward);
     			stagValues.tog = !stagValues.tog;

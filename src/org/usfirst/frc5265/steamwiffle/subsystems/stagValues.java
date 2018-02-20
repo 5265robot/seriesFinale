@@ -46,20 +46,22 @@ public class stagValues extends Subsystem {
 	public static final double allUpT = 0.0, allUpP = 0.0, halfUpT = 0.0, halfUpP = 0.0;
 	
 	//Lift power
-	public static double Liftpower =  .3;
+	public static double Liftpower =  .5;
 	
    
 	
 	//Arm power and pot limits
-	public static final double upperLimit = .7;
-	public static final double lowerLimit = .2;
-	public static final double armPower = 1;
+	public static final double upperLimit = .10;
+	public static final double lowerLimit = .33;
+	public static final double armPower = -.2;
 	
 	// limit for making sure arm is out of pot when solenoid fires
-	public static final double potCheck = .4;
-	
+	public static final double potCheck = .26;
+	public static final double startPos = .29;
+	public static final double maxH = 0.0;
+
 	//arm pos for up pos
-	public static final double armPos = .5;
+	public static final double armPos = .21;
 
     public void initDefaultCommand() {
         // This is where we put the above values to the SmartDashboard

@@ -9,10 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class armPos extends Command {
-
-    public armPos() {
+	public double pos;
+    public armPos(double posi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	pos = posi;
     }
 
     // Called just before this Command runs the first time
@@ -21,10 +22,10 @@ public class armPos extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double pos = RobotMap.analPot.get();
-    		if(pos > stagValues.potCheck) {
+    	double pot = RobotMap.analPot.get();
+    		if(pot > pos) {
     			RobotMap.arm.set(-stagValues.armPower);
-    		}else if(pos < stagValues.potCheck) {
+    		}else if(pot < pos) {
     			RobotMap.arm.set(stagValues.armPower);
     		}
     }
@@ -32,7 +33,7 @@ public class armPos extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         
-        if(RobotMap.analPot.get() > stagValues.potCheck-.05 && RobotMap.analPot.get() < stagValues.potCheck +.05) {
+        if(RobotMap.analPot.get() > pos -.05 && RobotMap.analPot.get() < pos +.05) {
         	return true;
         	
         }else {

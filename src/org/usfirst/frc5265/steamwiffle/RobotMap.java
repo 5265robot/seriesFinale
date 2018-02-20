@@ -91,11 +91,11 @@ public class RobotMap {
        
         	
         try {
-            upper = new DigitalInput(0);
+            upper = new DigitalInput(1);
         }catch(Exception e) {
     		
         }try {
-            lower = new DigitalInput(1);
+            lower = new DigitalInput(0);
         }catch(Exception e) {
     		
         }try { 

@@ -143,10 +143,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        //double degrees = RobotMap.pot.get();
+       double degrees = RobotMap.analPot.get();
         
-        //double distance = ultra.getValue();
-        //SmartDashboard.putNumber("Distance", distance)
+       // double distance = ultra.getValue();
+        SmartDashboard.putNumber("pot", degrees);
       /*
       
        double[] x = Raspberry.getNumberArray("x", xNet);
