@@ -87,7 +87,7 @@ public class RobotMap {
         //servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
         
-        	    arm = new NidecBrushless(8,8);
+        	  //  arm = new NidecBrushless(8,8);
        
         	
         try {

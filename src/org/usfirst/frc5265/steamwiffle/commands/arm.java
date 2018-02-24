@@ -3,7 +3,7 @@ package org.usfirst.frc5265.steamwiffle.commands;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -26,8 +26,8 @@ public class arm extends Command {
     		pos = (RobotMap.analPot.get() > lowLimit);
     		
     		stuck = 	(RobotMap.analPot.get()  < lowLimit && RobotMap.analPot.get() > upLimit ); 
-    		SmartDashboard.putString("running", "yes");
-    		SmartDashboard.putBoolean("stuck", stuck);
+    		//SmartDashboard.putString("running", "yes");
+    		//SmartDashboard.putBoolean("stuck", stuck);
 
         		
     }
@@ -36,17 +36,17 @@ public class arm extends Command {
     protected void execute() {
     if(stuck) {
 		RobotMap.chubby.set(-power);
-		SmartDashboard.putString("stuck", "yes");
+	//	SmartDashboard.putString("stuck", "yes");
 
 	//	SmartDashboard.putString("on", "yes");
     		}
     else if(pos) {
 			RobotMap.chubby.set(-power);
-			SmartDashboard.putString("on", "yes");
+		//	SmartDashboard.putString("on", "yes");
 		}
     else {
 			RobotMap.chubby.set(power);
-			SmartDashboard.putString("on", "yes");
+		//	SmartDashboard.putString("on", "yes");
 		}	
     }
 
@@ -55,7 +55,7 @@ public class arm extends Command {
     		//SmartDashboard.putNumber("pot", RobotMap.analPot.get());
     		if(pos || stuck) {
     			if(RobotMap.analPot.get() < upLimit) {
-    				SmartDashboard.putString("on", "no");
+    			//	SmartDashboard.putString("on", "no");
 
     				RobotMap.chubby.set(0);
     				//RobotMap.arm.disable();
@@ -65,7 +65,7 @@ public class arm extends Command {
     			if(RobotMap.analPot.get() > lowLimit) {
     				RobotMap.chubby.set(0);
     				//RobotMap.arm.disable();
-    				SmartDashboard.putString("on", "no");
+    			//	SmartDashboard.putString("on", "no");
 
     				return true;
     			}
