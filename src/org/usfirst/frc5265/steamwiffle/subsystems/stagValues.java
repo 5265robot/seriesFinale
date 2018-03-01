@@ -22,10 +22,13 @@ public class stagValues extends Subsystem {
 	//if theres an "n" it means with no scale
 	//forth/third is x power y power and t time
 	//Left Alliance Autonomous
-	public static final double l1x = 0.0, l1y = 1.0, l1t = 2.2;
+	public static final double l1x = .5, l1y = 0, l1t = 2.2;
 	//2nd stage for no scale "n"
-	public static final double l1nx = 0.0, l1ny = -1.0, l1nt = 1.0;
-	public static final double l2x = 0.0, l2y = -1.0, l2t = 1.0;
+	//X is forward
+	//Y is twist
+	public static final double l1nx = -.65, l1ny = 0, l1nt = 2;
+	//twist
+	public static final double l2x = 0.0, l2y = .5, l2t = .7;
 	public static final double l3x = 0.0, l3y = -1.0, l3t = 1.0;
 	/* commented out because the lefts are the same with opposite twists 
 	// Right Alliance Autonomous 
@@ -36,14 +39,16 @@ public class stagValues extends Subsystem {
 	public static final double r3x = 0.0, r3y = 1.0, r3t = 1.0;
 	*/
 	// Center Alliance Autonomous
-	public static final double c1x = 0.0, c1y = 1.0, c1t = 1.1;
-	public static final double c2x = 0.0, c2y = 1.0, c2t = 1.1;
-	public static final double c3x = 0.0, c3y = 0.5, c3t = 1.0;
+	public static final double c1x = 0.0, c1y = .5, c1t = .5;
+	public static final double c2x = 0.0, c2y = -.65, c2t = 1.1;
+	public static final double c3x = 0.0, c3y = -0.5, c3t = 5;
 	public static final double c4x = 0.0, c4y = 0.5, c4t = 1.0;
 	public static final double c5x = 0.0, c5y = 0.5, c5t = 1.0;
 	public static final double c6x = 0.0, c6y = 0.5, c6t = 1.0;
 	//auto lift times and power
-	public static final double allUpT = 0.0, allUpP = 0.0, halfUpT = 0.0, halfUpP = 0.0;
+	
+	//POWER NEEDS TO BE NEGATIVE
+	public static final double allUpT = 0.0, allUpP = -0.7, halfUpT = 0.0, halfUpP = 0.0;
 	
 	//Lift power
 	public static double Liftpower =  .7;
@@ -53,7 +58,7 @@ public class stagValues extends Subsystem {
 	//Arm power and pot limits
 	public static final double upperLimit = .12;
 	public static final double lowerLimit = .35;
-	public static final double armPower = -.25;
+	public static final double armPower = -.475;
 	
 	// limit for making sure arm is out of pot when solenoid fires
 	public static final double potCheck = .26;

@@ -18,6 +18,9 @@ public class AllianceAutonomous extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if(pos == "test") {
+    		autoMiddle = new AutoAlliance("test");
+    	}
     	if(pos == "center") {
     		autoMiddle = new AutoAlliance("center");
     	}

@@ -75,9 +75,9 @@ public class OI {
         // construct each button and what happens when it is used
         //click01 = new JoystickButton(steering, 1);
         	//click01.whileHeld(new dothis01());
-        tog = new JoystickButton(steering, 2);
+        tog = new JoystickButton(steering, 1);
             tog.whenPressed(new arm());
-       	solTest = new JoystickButton(steering,1);
+       	solTest = new JoystickButton(steering,2);
        		solTest.whenPressed(new SolTest());
         liftup = new JoystickButton(steering, 5);
         		liftup.whileHeld(new Lift(true));
