@@ -13,14 +13,14 @@ public class DriveByTime extends Command {
 	public double xx, yy, tt, time;
 	
 
-    public DriveByTime(double x, double y, double t, double time) {
+    public DriveByTime(double x, double y, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.chassis);
     	setTimeout(time);
     	xx = x;
     	yy = y;
-    	tt = t;
+   // 	tt = t;
     }
 
     // Called just before this Command runs the first time

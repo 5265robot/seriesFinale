@@ -1,33 +1,43 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
+import org.usfirst.frc5265.steamwiffle.Robot;
 
-import org.usfirst.frc5265.steamwiffle.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
-//import edu.wpi.first.wpilibj.Servo;
-
-
 
 /**
  *
  */
-public class servoTest extends Command {
-	
-	
-    public servoTest() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+public class AllianceAutonomous extends Command {
+	Command autoMiddle;
+	String pos;
+    public AllianceAutonomous(String place) {;
+    	requires(Robot.chassis);
+    	pos = place;
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.servme.set(.5);
-    	RobotMap.servme.setAngle(75);
+    	if(pos == "center") {
+    		autoMiddle = new AutoAlliance("center");
+    	}
+    	else if(pos == "right") {
+    		autoMiddle = new AutoAlliance("right");
+    	}
+    	else if(pos == "left") {
+    		autoMiddle = new AutoAlliance("left");    	
+    }
+    else if(pos == "leftNoScale") {
+    		autoMiddle = new AutoAlliance("leftNoScale");
+    }
+    else if(pos == "rightNoScale") {
+    		autoMiddle = new AutoAlliance("rightNoScale");
+    }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	 autoMiddle.start();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,9 +47,6 @@ public class servoTest extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	
-    	RobotMap.servme.set(0);
-    	
     }
 
     // Called when another command which requires one or more of the same

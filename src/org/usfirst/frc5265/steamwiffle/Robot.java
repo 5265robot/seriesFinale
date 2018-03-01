@@ -18,17 +18,6 @@ import org.usfirst.frc5265.steamwiffle.subsystems.*;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc5265.steamwiffle.commands.*;
-import edu.wpi.first.wpilibj.DriverStation;
-//import edu.wpi.first.wpilibj.interfaces.Potentiometer;
-//import edu.wpi.first.wpilibj.Ultrasonic;
-//import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-//import edu.wpi.first.wpilibj.networktables.*;
-//import edu.wpi.first.wpilibj.AnalogInput;
-//import edu.wpi.first.wpilibj.AnalogPotentiometer;
-//import edu.wpi.first.wpilibj.DoubleSolenoid;
-//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -92,13 +81,16 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         
         //autonomousCommand = new AutonomousCommand();
-        //autoChooser = new SendableChooser();
-        autoChooser.addDefault("Default Does Nothing", new AutonomousCommand());
-        autoChooser.addObject("Center Alliance", new CenterAllianceAutonomous());
-        autoChooser.addObject("Right Alliance", new RightAllianceAutonomous());
-        autoChooser.addObject("Left Alliance", new LeftAllianceAutonomous());
+        
+        autoChooser = new SendableChooser<Command>();
+        autoChooser.addDefault("Default Does Nothing", new AllianceAutonomous("nothing"));
+        autoChooser.addObject("Center Alliance", new AllianceAutonomous("center"));
+        autoChooser.addObject("Right Alliance", new AllianceAutonomous("right"));
+        autoChooser.addObject("Right Alliance - No Scale", new AllianceAutonomous("rightNoScale"));
+        autoChooser.addObject("Left Alliancee - No Scale", new AllianceAutonomous("leftNoScale"));
+        autoChooser.addObject("Left Alliance", new AllianceAutonomous("left"));
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
-        autonomousCommand = new CenterAllianceAutonomous();
+        autonomousCommand = new AllianceAutonomous("center");
         //SmartDashboard.putNumber("Timer Delay", .23);
         //SmartDashboard.putNumber("Power", .5);
 
@@ -123,15 +115,6 @@ public class Robot extends IterativeRobot {
 
     	autonomousCommand = autoChooser.getSelected();
     	
-    	gameData = DriverStation.getInstance().getGameSpecificMessage();
-    	
-    	if(gameData.charAt(0) == 'R'){
-    		//right side
-    		
-    	} else{
-    		//left side
-    		
-    	}
 
         if (autonomousCommand != null) autonomousCommand.start();
         }
@@ -150,7 +133,6 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         
-        
     }
 
     /**
@@ -161,10 +143,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        //double degrees = RobotMap.pot.get();
+       double degrees = RobotMap.analPot.get();
         
-        //double distance = ultra.getValue();
-        //SmartDashboard.putNumber("Distance", distance)
+       // double distance = ultra.getValue();
+        SmartDashboard.putNumber("pot", degrees);
       /*
       
        double[] x = Raspberry.getNumberArray("x", xNet);
