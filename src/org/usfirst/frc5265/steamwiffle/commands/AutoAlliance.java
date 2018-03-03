@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoAlliance extends CommandGroup {
-	String gameData = DriverStation.getInstance().getGameSpecificMessage();
+	String gameData = "LRL";
+			//DriverStation.getInstance().getGameSpecificMessage();
 	String[] game = new String[3];
 	
 	
@@ -34,7 +35,19 @@ public class AutoAlliance extends CommandGroup {
 	 
 	 // arm powers and time
 	double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpP, halfUpP = stagValues.halfUpT;
-	 
+	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+	 if(auto == "test") {
+		// addSequential( new DriveByTime(l1nx, l1ny, 4));
+		 //wait
+		// addSequential( new DriveByTime(0, 0, 1));
+
+		// addSequential( new DriveByTime(l2x, l2y, l2t));
+
+		// rotate arms
+		//addSequential(new armPos(stagValues.maxH));
+ 		addSequential(new timeLift(-.7,.5));
+ 		//RobotMap.brushless.set(0)
+	 }
 	 // make sure its reverse everytime
 	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
     	if(auto == "center") {
@@ -57,6 +70,9 @@ public class AutoAlliance extends CommandGroup {
     		}
     		//lift up
     		addSequential(new timeLift(halfUpP, halfUpT));
+    		
+    		// rotate arms
+    		addSequential(new armPos(stagValues.maxH));
     		  	
     	    // drop cube
 		addSequential(new SolTest());
@@ -90,6 +106,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(l2x, l2y, l2t));
     			//lift up
     			addSequential(new timeLift(allUpP,allUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
         		//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -102,6 +120,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(l2x, l2y, l2t));
     			//lift up
     			addSequential(new timeLift(halfUpP, halfUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
     			//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -122,6 +142,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(l2x, l2y, l2t));
     			//lift up
     			addParallel(new timeLift(halfUpP, halfUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
     			//drop cube
     			addParallel(new SolTest());
     			//lift down
@@ -130,8 +152,11 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(l1x, l1y, l1t));
     			//twist
     			addSequential( new DriveByTime(l2x, l2y, l2t));
+    			
     			//lift up
     			addSequential(new timeLift(allUpP,allUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
         		//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -154,6 +179,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(-l2x, l2y, l2t));
     			//lift up
     			addSequential(new timeLift(allUpP,allUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
         		//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -166,6 +193,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(-l2x, l2y, l2t));
     			//lift up
     			addParallel(new timeLift(halfUpP, halfUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
     			//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -189,6 +218,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(-l2x, l2y, l2t));
     			//lift up
     			addSequential(new timeLift(halfUpP, halfUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
     			//drop cube
         		addSequential(new SolTest());
         		//lift down
@@ -201,6 +232,8 @@ public class AutoAlliance extends CommandGroup {
     			addSequential( new DriveByTime(-l2x, l2y, l2t));
     			//lift up
     			addSequential(new timeLift(allUpP,allUpT));
+    			// rotate arms
+        		addSequential(new armPos(stagValues.maxH));
         		//drop cube
     			addSequential(new SolTest());
     			//lift down
