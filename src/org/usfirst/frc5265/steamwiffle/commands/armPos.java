@@ -52,6 +52,11 @@ public class armPos extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(stagValues.dead) {
+    		RobotMap.chubby.set(0);
+    		stagValues.dead = false;
+    		return true;
+    	}
 	    	pot = RobotMap.analPot.get();
 	    	bet = ((pot > pos + fudge) || (pot < pos - fudge));
 	    	if(!bet) {

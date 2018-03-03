@@ -48,7 +48,7 @@ public class stagValues extends Subsystem {
 	//Lift power
 	public static double Liftpower =  .7;
 	
-   
+    public static boolean dead = false;
 	
 	//Arm power and pot limits
 	public static final double upperLimit = .12;

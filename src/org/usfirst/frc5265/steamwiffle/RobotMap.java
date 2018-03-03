@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.NidecBrushless;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -56,6 +57,8 @@ public class RobotMap {
     public static DigitalInput upper;
     public static DigitalInput lower;
     public static NidecBrushless arm;
+    public static Compressor c;
+    
     	
    
     
@@ -87,13 +90,15 @@ public class RobotMap {
         //servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
         
-        	  //  arm = new NidecBrushless(8,8);
+        	//  arm = new NidecBrushless(8,8);
+        
+        
        
         	
         try {
             upper = new DigitalInput(1);
         }catch(Exception e) {
-    		
+ 
         }try {
             lower = new DigitalInput(0);
         }catch(Exception e) {
@@ -103,6 +108,13 @@ public class RobotMap {
         }catch(Exception e) {
     		
         }try {
+        	c = new Compressor(0);
+        	c.setClosedLoopControl(true);
+        } catch(Exception e) {
+        	
+        }
+        
+        try {
             airDoubleSolenoid1 = new DoubleSolenoid(0,1);
         }catch(Exception e) {
         		

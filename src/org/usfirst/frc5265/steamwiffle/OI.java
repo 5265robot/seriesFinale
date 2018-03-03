@@ -84,7 +84,7 @@ public class OI {
         liftdown = new JoystickButton(steering, 6);
         		liftdown.whileHeld(new Lift(false));
         	armPos = new JoystickButton(steering, 3);
-        		armPos.whenPressed(new armPos(stagValues.startPos));
+        		armPos.whenPressed(new death());
         armPosH = new JoystickButton(steering, 4);
         		armPosH.whenPressed(new armPos(stagValues.maxH));
         		
