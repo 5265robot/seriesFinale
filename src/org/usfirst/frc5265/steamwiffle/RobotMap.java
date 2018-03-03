@@ -57,12 +57,9 @@ public class RobotMap {
     public static DigitalInput upper;
     public static DigitalInput lower;
     public static NidecBrushless arm;
-<<<<<<< HEAD
+
     public static Compressor c;
-    
-=======
-    public static Compressor presser;
->>>>>>> 111f8f4470bb6e6241091f3193c463f3898456de
+
     	
    
     
@@ -91,8 +88,7 @@ public class RobotMap {
         chubby = new Victor(5);
         //LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
 
-    	presser = new Compressor(0);
-    	presser.setClosedLoopControl(true);
+    
 
         //servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
@@ -115,7 +111,7 @@ public class RobotMap {
         }catch(Exception e) {
     		
         }try {
-        	c = new Compressor(0);
+        	c = new Compressor(1);
         	c.setClosedLoopControl(true);
         } catch(Exception e) {
         	
