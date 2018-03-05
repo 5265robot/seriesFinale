@@ -135,17 +135,14 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
     	
         if (autonomousCommand != null) autonomousCommand.cancel();
-        try {
     		//RobotMap.c.clearAllPCMStickyFaults();
     		//SmartDashboard.putBoolean("pressure", RobotMap.c.getPressureSwitchValue());
     		//SmartDashboard.putBoolean("closed loop", RobotMap.c.getClosedLoopControl());
-    		RobotMap.c.start();
+    		//RobotMap.c.start();
     		//RobotMap.c.setClosedLoopControl(true);
     		//RobotMap.c.getCompressorCurrent();
     		//SmartDashboard.putNumber("C current", RobotMap.c.getCompressorCurrent());   		
-        } catch(Exception e) {
-        	
-        }
+       
     }
 
     /**

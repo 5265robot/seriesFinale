@@ -118,7 +118,7 @@ public class RobotMap {
         }
         
         try {
-            airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+            airDoubleSolenoid1 = new DoubleSolenoid(1,0,1);
         }catch(Exception e) {
         		
         }

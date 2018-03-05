@@ -26,7 +26,7 @@ public class stagValues extends Subsystem {
 	//2nd stage for no scale "n"
 	//X is forward
 	//Y is twist
-	public static final double l1nx = -.65, l1ny = 0, l1nt = 2;
+	public static final double l1nx = -.65, l1ny = 0.0, l1nt = 2;
 	//twist
 	public static final double l2x = 0.0, l2y = .5, l2t = .7;
 	public static final double l3x = 0.0, l3y = -1.0, l3t = 1.0;
@@ -51,7 +51,7 @@ public class stagValues extends Subsystem {
 	public static final double allUpT = 0.0, allUpP = -0.7, halfUpT = 0.0, halfUpP = 0.0;
 	
 	//Lift power
-	public static double Liftpower =  .7;
+	public static double Liftpower =  .9;
 	
     public static boolean dead = false;
 	

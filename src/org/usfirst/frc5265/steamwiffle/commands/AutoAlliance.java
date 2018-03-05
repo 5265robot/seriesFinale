@@ -37,7 +37,7 @@ public class AutoAlliance extends CommandGroup {
 	double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpP, halfUpP = stagValues.halfUpT;
 	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
 	 if(auto == "test") {
-		// addSequential( new DriveByTime(l1nx, l1ny, 4));
+		 addSequential( new DriveByTime(l1nx, l1ny, l1nt));
 		 //wait
 		// addSequential( new DriveByTime(0, 0, 1));
 
@@ -45,11 +45,11 @@ public class AutoAlliance extends CommandGroup {
 
 		// rotate arms
 		//addSequential(new armPos(stagValues.maxH));
- 		addSequential(new timeLift(-.7,.5));
+ 		//addSequential(new timeLift(-.7,.5));
  		//RobotMap.brushless.set(0)
 	 }
 	 // make sure its reverse everytime
-	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+	//RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
     	if(auto == "center") {
     		
     		//turn toward L or R
