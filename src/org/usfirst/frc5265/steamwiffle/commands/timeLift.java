@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class timeLift extends Command {
-	double p,t;
+	double p,t; // private, public, do you need t?
     public timeLift(double power, double time) {
         // Use requires() here to declare subsystem dependencies
          requires(Robot.chassis);
     
 	setTimeout(time);
 	p = power;
-	t = time;
+	t = time; // do you need this at all?
     }
 
     // Called just before this Command runs the first time
@@ -33,18 +33,23 @@ public class timeLift extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Robot.chassis.driveChassisSteering(x, y, t);
+	// could we put a timer here, one that displays to the dashboard?
+	// and use that timer to test that this command finishes when it is supposed to.
 
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
+    	// maybe the gets are playing with the timing of the command?
+	// perhaps this: boolean value = ( isTimedOut() || (!RobotMap.lower.get()) || (!RobotMap.upper.get()) )
+	// then: return value;
         return isTimedOut() || !RobotMap.lower.get() || !RobotMap.upper.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+	    // chassis.brushless.set(0) or RobotMap?
     	RobotMap.brushless.set(0);
     }
 
