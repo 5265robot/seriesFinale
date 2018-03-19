@@ -16,6 +16,7 @@ import org.usfirst.frc5265.steamwiffle.RobotMap;
 import org.usfirst.frc5265.steamwiffle.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.PowerDistributionPanel;
 //import edu.wpi.first.wpilibj.AnalogAccelerometer;
@@ -51,19 +52,19 @@ public class chassis extends Subsystem {
     // driving the individual wheels. If a certain motor begins to not supply sufficient umph, we can modify it here
     public static void driveFrontLeft(double speed) {
         speedController0.set(speed);
-        //SmartDashboard.putNumber("FrontLeft", speed);
+        SmartDashboard.putNumber("FrontLeft", speed);
     }
     public static void driveFrontRight(double speed) {
         speedController1.set(speed);
-       //SmartDashboard.putNumber("FrontRight", speed);
+       SmartDashboard.putNumber("FrontRight", speed);
     }
     public static void driveRearRight(double speed) {
         speedController2.set(speed);
-       //SmartDashboard.putNumber("RearLeft", speed);
+       SmartDashboard.putNumber("RearLeft", speed);
     }
     public static void driveRearLeft(double speed) {
         speedController3.set(speed);
-       //SmartDashboard.putNumber("RearRight", speed);
+       SmartDashboard.putNumber("RearRight", speed);
     }
     public static void brushless(double speed) {
         brushless.set(speed);

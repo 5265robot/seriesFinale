@@ -29,7 +29,7 @@ public class stagValues extends Subsystem {
 	public static final double l1nx = -.65, l1ny = 0.0, l1nt = 2;
 	//twist
 	public static final double l2x = 0.0, l2y = .5, l2t = .7;
-	public static final double l3x = 0.0, l3y = -1.0, l3t = 1.0;
+	public static final double l3x = 0.0, l3y = 0.0, l3t = 1.0;
 	/* commented out because the lefts are the same with opposite twists 
 	// Right Alliance Autonomous 
 	public static final double r1x = 0.1, r1y = 0.0, r1t = 1.0;
@@ -48,10 +48,10 @@ public class stagValues extends Subsystem {
 	//auto lift times and power
 	
 	//POWER NEEDS TO BE NEGATIVE
-	public static final double allUpT = 0.0, allUpP = -0.7, halfUpT = 0.0, halfUpP = 0.0;
+	public static final double allUpT = 0.25, allUpP = -0.7, halfUpT = .25, halfUpP = -.7;
 	
 	//Lift power
-	public static double Liftpower =  .9;
+	public static double Liftpower =  1.0;
 	
     public static boolean dead = false;
 	

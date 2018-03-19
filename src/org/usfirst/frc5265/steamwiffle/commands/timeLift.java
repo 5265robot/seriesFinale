@@ -1,6 +1,8 @@
 package org.usfirst.frc5265.steamwiffle.commands;
 
+import org.usfirst.frc5265.steamwiffle.Robot;
 import org.usfirst.frc5265.steamwiffle.RobotMap;
+import org.usfirst.frc5265.steamwiffle.subsystems.chassis;
 import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -13,7 +15,7 @@ public class timeLift extends Command {
 	double p,t;
     public timeLift(double power, double time) {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+         requires(Robot.chassis);
     
 	setTimeout(time);
 	p = power;
@@ -22,10 +24,10 @@ public class timeLift extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(RobotMap.analPot.get() < stagValues.potCheck || stagValues.tog == false) {
-    		RobotMap.brushless.set(p);
-    		Timer.delay(.1);
-    	}
+    	//if(RobotMap.analPot.get() < stagValues.potCheck || stagValues.tog == false) {
+    		chassis.brushless.set(p);
+    	//	Timer.delay(.1);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,7 +40,7 @@ public class timeLift extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	
-        return isTimedOut();
+        return isTimedOut() || !RobotMap.lower.get() || !RobotMap.upper.get();
     }
 
     // Called once after isFinished returns true

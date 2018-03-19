@@ -17,6 +17,7 @@ import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 //import org.usfirst.frc5265.steamwiffle.subsystems.*;
@@ -135,7 +136,8 @@ public class OI {
     }
     */
     public double getThrottle() {
-    	return steering.getThrottle()-.99;
+    	SmartDashboard.putNumber("throttle",steering.getThrottle());
+    	return steering.getThrottle();
     }
     /*
     public double getPOV(){

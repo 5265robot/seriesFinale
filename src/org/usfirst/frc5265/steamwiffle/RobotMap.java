@@ -16,14 +16,16 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.NidecBrushless;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Victor;
+//import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.AnalogAccelerometer;
 //import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.Compressor;
+//import edu.wpi.first.wpilibj.Compressor;
 //import edu.wpi.first.wpilibj.Relay;
 //import edu.wpi.first.wpilibj.RobotDrive;
 //import edu.wpi.first.wpilibj.Solenoid;
@@ -57,7 +59,6 @@ public class RobotMap {
     public static DigitalInput upper;
     public static DigitalInput lower;
     public static NidecBrushless arm;
-
     public static Compressor c;
 
     	

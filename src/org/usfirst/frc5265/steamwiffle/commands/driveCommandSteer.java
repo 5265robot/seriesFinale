@@ -63,7 +63,7 @@ public class driveCommandSteer extends Command {
     	}
     	*/
     	// Incorporating throttle 
-    	throttle = ((-throttle + 1)/2);
+    	throttle = ((-throttle-.5));
     //	SmartDashboard.putNumber("throttle", throttle);
         	// x modification
     	if (Math.abs(x) <= minMotion) { // x can be both positive and negative
@@ -108,7 +108,7 @@ public class driveCommandSteer extends Command {
     	
     	    	
     	// steer using those variables
-    	chassis.driveChassisSteering(x, y);
+    	chassis.driveChassisSteering(-x, -y);
     	
     }
 
