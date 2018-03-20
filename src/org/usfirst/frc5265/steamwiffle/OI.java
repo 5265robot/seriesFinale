@@ -66,6 +66,7 @@ public class OI {
     public JoystickButton liftup;
     public JoystickButton liftdown;
     public JoystickButton tog;
+    public JoystickButton testLift;
 
     
     public OI() {
@@ -84,8 +85,10 @@ public class OI {
         		liftup.whileHeld(new Lift(true));
         liftdown = new JoystickButton(steering, 6);
         		liftdown.whileHeld(new Lift(false));
-        	armPos = new JoystickButton(steering, 3);
-        		armPos.whenPressed(new death());
+        //	armPos = new JoystickButton(steering, 3);
+       // 		armPos.whenPressed(new death());
+        	  	armPos = new JoystickButton(steering, 3);
+        		armPos.whenPressed(new timeLift(-.7,.25));
         armPosH = new JoystickButton(steering, 4);
         		armPosH.whenPressed(new armPos(stagValues.maxH));
         		

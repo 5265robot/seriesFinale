@@ -12,22 +12,23 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class timeLift extends Command {
-	double p,t;
+	double p;
     public timeLift(double power, double time) {
         // Use requires() here to declare subsystem dependencies
          requires(Robot.chassis);
     
 	setTimeout(time);
 	p = power;
-	t = time;
+	//t = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	//if(RobotMap.analPot.get() < stagValues.potCheck || stagValues.tog == false) {
-    		chassis.brushless.set(p);
+    		chassis.tLift(p);
     	//	Timer.delay(.1);
-    	
+        	Timer.delay(.1);
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -39,14 +40,17 @@ public class timeLift extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
-        return isTimedOut() || !RobotMap.lower.get() || !RobotMap.upper.get();
+    	if(p < 0) {
+        return !RobotMap.lower.get() || isTimedOut();
+    	}else {
+    		return !RobotMap.upper.get() || isTimedOut();
+    	}
+    		
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.brushless.set(0);
-    }
+    	chassis.tLift(0);    }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

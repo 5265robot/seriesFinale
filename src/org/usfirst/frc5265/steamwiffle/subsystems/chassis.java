@@ -72,7 +72,9 @@ public class chassis extends Subsystem {
     }
     
     // main driving program, using simple addition to get the robot moving in the appropriate direction
-   
+    public static void tLift(double power) {
+    	brushless.set(power);
+    }
     public static void driveChassisSteering(double x_speed, double y_speed) {
     	double FL, FR, RL, RR;
     //	double maxXYT;

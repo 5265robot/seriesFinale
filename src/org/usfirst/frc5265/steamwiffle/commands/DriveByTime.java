@@ -64,10 +64,7 @@ public class DriveByTime extends Command {
     protected void end() {
    // 	chassis.driveChassisSteering(0, 0);
     	chassis.driveChassisSteering(xx,yy);
-    	lf.set(0);
-    	rf.set(0);
-    	rr.set(0);
-    	lr.set(0);
+
     }
 
     // Called when another command which requires one or more of the same

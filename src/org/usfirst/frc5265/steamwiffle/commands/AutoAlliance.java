@@ -39,7 +39,7 @@ public class AutoAlliance extends CommandGroup {
 	double allUpT = stagValues.allUpT, allUpP = stagValues.allUpP, halfUpT = stagValues.halfUpT, halfUpP = stagValues.halfUpP;
 //	RobotMap.airDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
 	 if(auto == "test") {
-		 addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+		 //addSequential( new DriveByTime(l1nx, l1ny, l1nt));
 		 //wait
 		// addSequential( new DriveByTime(0, 0, 1));
 
@@ -47,7 +47,7 @@ public class AutoAlliance extends CommandGroup {
 
 		// rotate arms
 		//addSequential(new armPos(stagValues.maxH));
- 		addSequential(new timeLift(-.7,.25));
+ 		addSequential(new timeLift(-.7,2.0));
  		//RobotMap.brushless.set(0)
 	 }
 	 // make sure its reverse everytime
@@ -137,8 +137,7 @@ public class AutoAlliance extends CommandGroup {
     		
     	//RIGHT NO SCALE	
     	}else if(auto == "rightNoScale") {
-    		
-			//forward
+    		//forward
 			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
 			while(!data) {
 				try {
@@ -151,33 +150,61 @@ public class AutoAlliance extends CommandGroup {
 				}
 
 			}
-			if(dat.substring(0,1).equals("L")) {
+			if(dat.substring(0,1).equals("R")) {
+				//addSequential(new timeLift(-.7,.25));
+				//wait
+		addSequential(new DriveByTime(0, 0, .25));
 			//twist
-			addSequential( new DriveByTime(l2x, l2y, l2t));
+		addSequential( new DriveByTime(-l2x, -l2y, l2t));
+		
+		addSequential(new DriveByTime(0, 0, .25));
+			
+		addSequential(new armPos(stagValues.maxH));
+			//wait again
+		addSequential(new DriveByTime(0, 0, .5));
 			//lift up
-			addSequential(new timeLift(halfUpP, halfUpT));
-			// rotate arms
-    		addSequential(new armPos(stagValues.maxH));
+		addSequential(new timeLift(-.7, 2.5)); 
+			
+		addSequential(new DriveByTime(0, 0, .25));
+			
+			//forward into the switch
+		addSequential( new DriveByTime(-.5, 0, .6));
+    		/*
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			//	e.printStackTrace();
+			}*/
+			//addSequential( new DriveByTime(l3x, l3y, l3t));
+			//rotate arms
 			//drop cube
-    		addSequential(new SolTest());
+   // 		addSequential(new SolTest());
     		//lift down
-    		addSequential(new timeLift(-halfUpP, halfUpT));
+    	//	addSequential(new timeLift(-halfUpP, halfUpT));
+		}else if(dat.substring(1,2).equals("R")){
+			addSequential( new DriveByTime(l1nx, l1ny, l1nt-.25));
 
-		}else if(dat.substring(1,2).equals("L")){
-			//forward
-			addSequential( new DriveByTime(l1x, l1y, l1t));
+			addSequential(new DriveByTime(0, 0, .25));
 			//twist
-			addSequential( new DriveByTime(l2x, l2y, l2t));
+			addSequential( new DriveByTime(-l2x, -l2y, l2t+.25));
+			
+			addSequential(new DriveByTime(0, 0, .25));
+			
+			addSequential(new armPos(stagValues.maxH));
+			
+			addSequential(new DriveByTime(0, 0, .25));
 			//lift up
-			addSequential(new timeLift(allUpP,allUpT));
+			addSequential(new timeLift(-.7,7));
+			
+			addSequential(new DriveByTime(0, 0, .25));
 			// rotate arms
     		addSequential(new armPos(stagValues.maxH));
     		//drop cube
-			addSequential(new SolTest());
+			//addSequential(new SolTest());
 			//lift down
-			addSequential(new timeLift(-allUpP, halfUpT));
+			//addSequential(new timeLift(, halfUpT-.25));
 		}else {
-			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+			
 		}
 		
 		
@@ -245,39 +272,54 @@ public class AutoAlliance extends CommandGroup {
 
     			}
     			if(dat.substring(0,1).equals("L")) {
-    				addSequential(new timeLift(-.7,.25));
+    				//addSequential(new timeLift(-.7,.25));
+    				//wait
+    		addSequential(new DriveByTime(0, 0, .25));
     			//twist
-    			addSequential( new DriveByTime(-l2x, l2y, l2t));
+    		addSequential(new DriveByTime(-l2x, l2y, l2t));
+    		
+    		addSequential(new DriveByTime(0, 0, .25));
+    		
+    		
+        	addSequential(new armPos(stagValues.maxH));
+
+    			//wait again
+    		addSequential(new DriveByTime(0, 0, .5));
     			//lift up
-    			addSequential(new timeLift(-.7,.25));    			
+    			addSequential(new timeLift(-.7,2.5));    			
+    			
+    			//forward into the switch
+    			addSequential( new DriveByTime(-.5, 0, .6));
+        		/*
     			try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 				//	e.printStackTrace();
-				}
-    			addSequential( new DriveByTime(l3x, l3y, l3t));
-    			// rotate arms
-        //		addSequential(new armPos(stagValues.maxH));
+				}*/
+    			//addSequential( new DriveByTime(l3x, l3y, l3t));
+    			//rotate arms
     			//drop cube
        // 		addSequential(new SolTest());
         		//lift down
-        		addSequential(new timeLift(-halfUpP, halfUpT));
+        	//	addSequential(new timeLift(-halfUpP, halfUpT));
 
     		}else if(dat.substring(1,2).equals("L")){
     			//forward
-    			addSequential( new DriveByTime(l1x, l1y, l1t));
+    			
+    			addSequential( new DriveByTime(l1nx, l1ny, l1nt-.25));
+
     			//twist
     			addSequential( new DriveByTime(-l2x, l2y, l2t));
+    			
+    			addSequential(new armPos(stagValues.maxH));
     			//lift up
-    			addSequential(new timeLift(allUpP,allUpT));
+    			addSequential(new timeLift(-.7,5));
     			// rotate arms
         		addSequential(new armPos(stagValues.maxH));
         		//drop cube
-    			addSequential(new SolTest());
+    			//addSequential(new SolTest());
     			//lift down
-    			addSequential(new timeLift(-allUpP, halfUpT));
-    		}else {
-    			addSequential( new DriveByTime(l1nx, l1ny, l1nt));
+    			addSequential(new timeLift(-allUpP, halfUpT-.25));
     		}
     		
     		
