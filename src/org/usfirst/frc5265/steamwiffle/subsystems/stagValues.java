@@ -39,9 +39,9 @@ public class stagValues extends Subsystem {
 	public static final double r3x = 0.0, r3y = 1.0, r3t = 1.0;
 	*/
 	// Center Alliance Autonomous
-	public static final double c1x = 0.0, c1y = .5, c1t = .5;
-	public static final double c2x = 0.0, c2y = -.65, c2t = 1.1;
-	public static final double c3x = 0.0, c3y = -0.5, c3t = 5;
+	public static final double c1x = 0.0, c1y = .5, c1t = .25;
+	public static final double c2x = -.65, c2y = .0, c2t = 1.5;
+	public static final double c3x = -.65, c3y = -0.0, c3t = .20;
 	public static final double c4x = 0.0, c4y = 0.5, c4t = 1.0;
 	public static final double c5x = 0.0, c5y = 0.5, c5t = 1.0;
 	public static final double c6x = 0.0, c6y = 0.5, c6t = 1.0;
