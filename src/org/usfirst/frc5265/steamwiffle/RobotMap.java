@@ -60,8 +60,7 @@ public class RobotMap {
     public static DigitalInput lower;
     public static NidecBrushless arm;
     public static Compressor c;
-
-    	
+    public static AnalogGyro analG;
    
     
     public static void init() {
@@ -115,14 +114,13 @@ public class RobotMap {
         	c = new Compressor(1);
         	c.setClosedLoopControl(true);
         } catch(Exception e) {
-        	
-        }
         
-        try {
+        }try {
             airDoubleSolenoid1 = new DoubleSolenoid(1,0,1);
         }catch(Exception e) {
         		
         }
+        
 
     }
 }
