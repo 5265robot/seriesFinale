@@ -17,6 +17,7 @@ import org.usfirst.frc5265.steamwiffle.subsystems.stagValues;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 //import org.usfirst.frc5265.steamwiffle.subsystems.*;
@@ -65,6 +66,7 @@ public class OI {
     public JoystickButton liftup;
     public JoystickButton liftdown;
     public JoystickButton tog;
+    public JoystickButton testLift;
 
     
     public OI() {
@@ -75,16 +77,18 @@ public class OI {
         // construct each button and what happens when it is used
         //click01 = new JoystickButton(steering, 1);
         	//click01.whileHeld(new dothis01());
-        tog = new JoystickButton(steering, 2);
+        tog = new JoystickButton(steering, 1);
             tog.whenPressed(new arm());
-       	solTest = new JoystickButton(steering,1);
+       	solTest = new JoystickButton(steering,2);
        		solTest.whenPressed(new SolTest());
         liftup = new JoystickButton(steering, 5);
         		liftup.whileHeld(new Lift(true));
         liftdown = new JoystickButton(steering, 6);
         		liftdown.whileHeld(new Lift(false));
-        	armPos = new JoystickButton(steering, 3);
-        		armPos.whenPressed(new armPos(stagValues.startPos));
+        //	armPos = new JoystickButton(steering, 3);
+       // 		armPos.whenPressed(new death());
+        	  	armPos = new JoystickButton(steering, 3);
+        		armPos.whenPressed(new timeLift(-.7,.25));
         armPosH = new JoystickButton(steering, 4);
         		armPosH.whenPressed(new armPos(stagValues.maxH));
         		
@@ -135,7 +139,8 @@ public class OI {
     }
     */
     public double getThrottle() {
-    	return steering.getThrottle()-.99;
+    	SmartDashboard.putNumber("throttle",steering.getThrottle());
+    	return steering.getThrottle();
     }
     /*
     public double getPOV(){

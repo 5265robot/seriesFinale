@@ -52,6 +52,11 @@ public class arm extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {	
+    	if(stagValues.dead) {
+    		RobotMap.chubby.set(0);
+    		stagValues.dead = false;
+    		return true;
+    	}
     		//SmartDashboard.putNumber("pot", RobotMap.analPot.get());
     		if(pos || stuck) {
     			if(RobotMap.analPot.get() < upLimit) {

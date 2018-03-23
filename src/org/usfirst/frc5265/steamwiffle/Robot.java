@@ -84,13 +84,15 @@ public class Robot extends IterativeRobot {
         
         autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Default Does Nothing", new AllianceAutonomous("nothing"));
+        autoChooser.addObject("Test", new AllianceAutonomous("test"));
+        autoChooser.addObject("Left Alliancee - No Scale", new AllianceAutonomous("leftNoScale"));
         autoChooser.addObject("Center Alliance", new AllianceAutonomous("center"));
         autoChooser.addObject("Right Alliance", new AllianceAutonomous("right"));
         autoChooser.addObject("Right Alliance - No Scale", new AllianceAutonomous("rightNoScale"));
-        autoChooser.addObject("Left Alliancee - No Scale", new AllianceAutonomous("leftNoScale"));
+        
         autoChooser.addObject("Left Alliance", new AllianceAutonomous("left"));
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
-        autonomousCommand = new AllianceAutonomous("center");
+        //autonomousCommand = new AllianceAutonomous("center");
         //SmartDashboard.putNumber("Timer Delay", .23);
         //SmartDashboard.putNumber("Power", .5);
 
@@ -131,8 +133,16 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
+    	
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
+    		//RobotMap.c.clearAllPCMStickyFaults();
+    		//SmartDashboard.putBoolean("pressure", RobotMap.c.getPressureSwitchValue());
+    		//SmartDashboard.putBoolean("closed loop", RobotMap.c.getClosedLoopControl());
+    		//RobotMap.c.start();
+    		//RobotMap.c.setClosedLoopControl(true);
+    		//RobotMap.c.getCompressorCurrent();
+    		//SmartDashboard.putNumber("C current", RobotMap.c.getCompressorCurrent());   		
+       
     }
 
     /**
@@ -144,7 +154,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
        double degrees = RobotMap.analPot.get();
-        
+      
        // double distance = ultra.getValue();
         SmartDashboard.putNumber("pot", degrees);
       /*

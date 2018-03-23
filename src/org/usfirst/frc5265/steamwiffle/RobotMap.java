@@ -16,8 +16,11 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.NidecBrushless;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Victor;
+//import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.AnalogAccelerometer;
@@ -56,7 +59,8 @@ public class RobotMap {
     public static DigitalInput upper;
     public static DigitalInput lower;
     public static NidecBrushless arm;
-    	
+    public static Compressor c;
+    public static AnalogGyro analG;
    
     
     public static void init() {
@@ -83,17 +87,21 @@ public class RobotMap {
         
         chubby = new Victor(5);
         //LiveWindow.addSensor("chassis", "analpot", (AnalogPotentiometer) analPot);
-        
+
+    
+
         //servme = new Servo(9);
         //LiveWindow.addActuator("Servo", 9, (Servo) servme);
         
-        	  //  arm = new NidecBrushless(8,8);
+        	//  arm = new NidecBrushless(8,8);
+        
+        
        
         	
         try {
             upper = new DigitalInput(1);
         }catch(Exception e) {
-    		
+ 
         }try {
             lower = new DigitalInput(0);
         }catch(Exception e) {
@@ -103,10 +111,16 @@ public class RobotMap {
         }catch(Exception e) {
     		
         }try {
-            airDoubleSolenoid1 = new DoubleSolenoid(0,1);
+        	c = new Compressor(1);
+        	c.setClosedLoopControl(true);
+        } catch(Exception e) {
+        
+        }try {
+            airDoubleSolenoid1 = new DoubleSolenoid(1,0,1);
         }catch(Exception e) {
         		
         }
+        
 
     }
 }
